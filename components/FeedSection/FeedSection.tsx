@@ -3,9 +3,9 @@ import React from "react";
 
 import ThemedView from "../ThemedView";
 
-import TopBar from "./TopBar";
-import StoriesBar from "./StoriesBar";
-import Feed from "./Feed";
+import TopBar from "./components/TopBar";
+import StoriesBar from "./components/StoriesBar";
+import Feed from "./components/Feed";
 
 export default function FeedSection() {
   return (
