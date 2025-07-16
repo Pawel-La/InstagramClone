@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { StyleProp, StyleSheet, TextStyle } from "react-native";
+import { StyleProp, StyleSheet, TextStyle, Image } from "react-native";
 
 import ThemedText from "./ThemedText";
 import ThemedView from "./ThemedView";
@@ -11,7 +11,7 @@ export default function SideBar() {
     <ThemedView style={styles.container}>
       <ThemedView style={{ flex: 1 }}>
         <ThemedView style={styles.mainLogo}>
-          <ThemedCustomIcon name="instagram-written" width={100} height={30} />
+          <ThemedCustomIcon name="instagram-written" width={100} height={32} />
         </ThemedView>
 
         <ThemedView style={{ flex: 1 }}>
@@ -44,15 +44,20 @@ export default function SideBar() {
           </SideBarElement>
 
           <SideBarElement text="Profil">
-            <ThemedIcon name="?" size={24} />
+            <Image
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 12,
+              }}
+              source={require("../assets/images/user_image.jpg")}
+            />
           </SideBarElement>
         </ThemedView>
 
-        <ThemedView>
-          <SideBarElement text="Więcej">
-            <ThemedCustomIcon name="more" size={24} />
-          </SideBarElement>
-        </ThemedView>
+        <SideBarElement text="Więcej">
+          <ThemedCustomIcon name="more" size={24} />
+        </SideBarElement>
       </ThemedView>
     </ThemedView>
   );
@@ -90,8 +95,8 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   mainLogo: {
-    paddingTop: 32,
-    paddingBottom: 16,
+    paddingTop: 30,
+    paddingBottom: 11,
     paddingHorizontal: 12,
     marginBottom: 19,
   },
