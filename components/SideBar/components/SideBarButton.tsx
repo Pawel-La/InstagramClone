@@ -5,6 +5,7 @@ import {
   StyleProp,
   TextStyle,
   StyleSheet,
+  PressableProps,
 } from "react-native";
 
 import ThemedText from "../../ThemedText";
@@ -13,11 +14,13 @@ import { useThemeColors } from "@/hooks/useThemeColors";
 type SideBarButtonProps = PropsWithChildren & {
   text: string;
   textStyle?: StyleProp<TextStyle>;
+  onPress?: PressableProps["onPress"];
 };
 
 export default function SideBarButton({
   text,
   textStyle,
+  onPress,
   children,
 }: SideBarButtonProps) {
   const themeColors = useThemeColors();
@@ -31,6 +34,7 @@ export default function SideBarButton({
       onPressOut={() => {
         setIsPressed(false);
       }}
+      onPress={onPress}
     >
       {({ hovered }) => (
         <View

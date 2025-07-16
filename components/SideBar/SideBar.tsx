@@ -1,20 +1,33 @@
 import { StyleSheet, Image } from "react-native";
 
+import { useRouter } from "expo-router";
+
 import ThemedView from "../ThemedView";
 import ThemedIcon from "../ThemedIcon";
 import ThemedCustomIcon from "../ThemedCustomIcon";
 import SideBarButton from "./components/SideBarButton";
+import MainLogoButton from "./components/MainLogoButton";
 
 export default function SideBar() {
+  const router = useRouter();
+
   return (
     <ThemedView style={styles.container}>
       <ThemedView style={{ flex: 1 }}>
-        <ThemedView style={styles.mainLogo}>
-          <ThemedCustomIcon name="instagram-written" width={100} height={32} />
-        </ThemedView>
+        <MainLogoButton
+          onPress={() => {
+            router.navigate("/");
+          }}
+        />
 
         <ThemedView style={{ flex: 1 }}>
-          <SideBarButton text="Strona główna" textStyle={{ fontWeight: 700 }}>
+          <SideBarButton
+            text="Strona główna"
+            textStyle={{ fontWeight: 700 }}
+            onPress={() => {
+              router.navigate("/");
+            }}
+          >
             <ThemedIcon name="home" size={24} />
           </SideBarButton>
 
@@ -22,7 +35,12 @@ export default function SideBar() {
             <ThemedIcon name="search" size={24} />
           </SideBarButton>
 
-          <SideBarButton text="Eksploruj">
+          <SideBarButton
+            text="Eksploruj"
+            onPress={() => {
+              router.navigate("/explore");
+            }}
+          >
             <ThemedIcon name="explore" size={24} />
           </SideBarButton>
 
@@ -70,11 +88,5 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingTop: 8,
     paddingHorizontal: 12,
-  },
-  mainLogo: {
-    paddingTop: 30,
-    paddingBottom: 11,
-    paddingHorizontal: 12,
-    marginBottom: 19,
   },
 });
