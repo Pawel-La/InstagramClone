@@ -1,17 +1,23 @@
-const blackColor = "#000000";
-const blackishColor = "#151718";
-const whiteColor = "#FFFFFF";
-const whiteishColor = "#F5F5F5";
+const black = "#000000";
+const black10 = "#00000010";
+const blackish = "#151718";
+const white = "#FFFFFF";
+const white10 = "#FFFFFF10";
+const whiteish = "#F5F5F5";
 
 export const Colors = {
   light: {
-    text: blackColor,
-    background: whiteColor,
-    iconFill: whiteColor,
+    text: black,
+    background: white,
+    button_background: white,
+    button_background_hovered: black10,
+    iconFill: white,
   },
   dark: {
-    text: whiteishColor,
-    background: blackishColor,
-    iconFill: blackishColor,
+    text: whiteish,
+    background: blackish,
+    button_background: blackish,
+    button_background_hovered: white10,
+    iconFill: blackish,
   },
 };

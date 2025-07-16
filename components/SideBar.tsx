@@ -1,10 +1,18 @@
-import { PropsWithChildren } from "react";
-import { StyleProp, StyleSheet, TextStyle, Image } from "react-native";
+import { PropsWithChildren, useState } from "react";
+import {
+  StyleProp,
+  StyleSheet,
+  TextStyle,
+  Image,
+  Pressable,
+  View,
+} from "react-native";
 
 import ThemedText from "./ThemedText";
 import ThemedView from "./ThemedView";
 import ThemedIcon from "./ThemedIcon";
 import ThemedCustomIcon from "./ThemedCustomIcon";
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 export default function SideBar() {
   return (
@@ -69,13 +77,39 @@ type SideBarElementProps = PropsWithChildren & {
 };
 
 const SideBarElement = ({ text, textStyle, children }: SideBarElementProps) => {
+  const themeColors = useThemeColors();
+  const [isPressed, setIsPressed] = useState(false);
+
   return (
-    <ThemedView style={styles.elementContainer}>
-      {children}
-      <ThemedText style={[{ fontSize: 16, lineHeight: 24 }, textStyle]}>
-        {text}
-      </ThemedText>
-    </ThemedView>
+    <Pressable
+      onPressIn={() => {
+        setIsPressed(true);
+      }}
+      onPressOut={() => {
+        setIsPressed(false);
+      }}
+    >
+      {({ hovered }) => (
+        <View
+          style={[
+            styles.elementContainer,
+            {
+              backgroundColor: hovered
+                ? themeColors.button_background_hovered
+                : themeColors.button_background,
+            },
+            {
+              transform: [{ scale: isPressed ? 0.96 : 1 }],
+            },
+          ]}
+        >
+          {children}
+          <ThemedText style={[{ fontSize: 16, lineHeight: 24 }, textStyle]}>
+            {text}
+          </ThemedText>
+        </View>
+      )}
+    </Pressable>
   );
 };
 
