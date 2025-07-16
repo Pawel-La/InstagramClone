@@ -1,7 +1,5 @@
-import { ComponentProps } from "react";
+import { PropsWithChildren } from "react";
 import { StyleProp, StyleSheet, TextStyle } from "react-native";
-
-import { MaterialIcons } from "@expo/vector-icons";
 
 import ThemedText from "./ThemedText";
 import ThemedView from "./ThemedView";
@@ -17,41 +15,58 @@ export default function SideBar() {
         </ThemedView>
 
         <ThemedView style={{ flex: 1 }}>
-          <SideBarElement
-            icon="home"
-            text="Strona główna"
-            textStyle={{ fontWeight: 700 }}
-          />
-          <SideBarElement icon="search" text="Szukaj" />
+          <SideBarElement text="Strona główna" textStyle={{ fontWeight: 700 }}>
+            <ThemedIcon name="home" size={24} />
+          </SideBarElement>
 
-          <ThemedCustomIcon name="direction" width={24} height={24} />
+          <SideBarElement text="Szukaj">
+            <ThemedIcon name="search" size={24} />
+          </SideBarElement>
 
-          <SideBarElement icon="explore" text="Eksploruj" />
-          <SideBarElement icon="movie" text="Rolki" />
-          <SideBarElement icon="?" text="Wiadomości" />
-          <SideBarElement icon="?" text="Powiadomienia" />
-          <SideBarElement icon="add-box" text="Utwórz" />
-          <SideBarElement icon="?" text="Profil" />
+          <SideBarElement text="Eksploruj">
+            <ThemedIcon name="explore" size={24} />
+          </SideBarElement>
+
+          <SideBarElement text="Rolki">
+            <ThemedIcon name="movie" size={24} />
+          </SideBarElement>
+
+          <SideBarElement text="Wiadomości">
+            <ThemedCustomIcon name="direction" size={24} />
+          </SideBarElement>
+
+          <SideBarElement text="Powiadomienia">
+            <ThemedCustomIcon name="heart" size={24} />
+          </SideBarElement>
+
+          <SideBarElement text="Utwórz">
+            <ThemedIcon name="add-box" size={24} />
+          </SideBarElement>
+
+          <SideBarElement text="Profil">
+            <ThemedIcon name="?" size={24} />
+          </SideBarElement>
         </ThemedView>
 
         <ThemedView>
-          <SideBarElement icon="?" text="Więcej" />
+          <SideBarElement text="Więcej">
+            <ThemedCustomIcon name="more" size={24} />
+          </SideBarElement>
         </ThemedView>
       </ThemedView>
     </ThemedView>
   );
 }
 
-type SideBarElementProps = {
-  icon: ComponentProps<typeof MaterialIcons>["name"];
+type SideBarElementProps = PropsWithChildren & {
   text: string;
   textStyle?: StyleProp<TextStyle>;
 };
 
-const SideBarElement = ({ icon, text, textStyle }: SideBarElementProps) => {
+const SideBarElement = ({ text, textStyle, children }: SideBarElementProps) => {
   return (
     <ThemedView style={styles.elementContainer}>
-      <ThemedIcon name={icon} size={24} />
+      {children}
       <ThemedText style={[{ fontSize: 16, lineHeight: 24 }, textStyle]}>
         {text}
       </ThemedText>
