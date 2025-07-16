@@ -25,7 +25,7 @@ export default function ThemedCustomIcon({
   const themeColors = useThemeColors();
   const width = size ?? props["width"];
   const height = size ?? props["width"];
-  const iconFill = fill ?? themeColors.iconFill;
+  const iconFill = fill ?? themeColors.icon_fill;
   const iconColor = color ?? themeColors.text;
 
   switch (name) {
