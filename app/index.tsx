@@ -1,6 +1,6 @@
 import ThemedView from "../components/ThemedView";
 import { StyleSheet } from "react-native";
-import SideBar from "@/components/SideBar";
+import SideBar from "@/components/SideBar/SideBar";
 
 export default function Index() {
   return (

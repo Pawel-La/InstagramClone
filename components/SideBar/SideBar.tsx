@@ -1,9 +1,9 @@
 import { StyleSheet, Image } from "react-native";
 
-import ThemedView from "./ThemedView";
-import ThemedIcon from "./ThemedIcon";
-import ThemedCustomIcon from "./ThemedCustomIcon";
-import SideBarButton from "./SideBarButton";
+import ThemedView from "../ThemedView";
+import ThemedIcon from "../ThemedIcon";
+import ThemedCustomIcon from "../ThemedCustomIcon";
+import SideBarButton from "./components/SideBarButton";
 
 export default function SideBar() {
   return (
@@ -49,7 +49,7 @@ export default function SideBar() {
                 height: 24,
                 borderRadius: 12,
               }}
-              source={require("../assets/images/user_image.jpg")}
+              source={require("@/assets/images/user_image.jpg")}
             />
           </SideBarButton>
         </ThemedView>

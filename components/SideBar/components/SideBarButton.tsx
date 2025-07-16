@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-import ThemedText from "./ThemedText";
+import ThemedText from "../../ThemedText";
 import { useThemeColors } from "@/hooks/useThemeColors";
 
 type SideBarButtonProps = PropsWithChildren & {
