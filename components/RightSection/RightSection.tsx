@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import React from "react";
 
 import ThemedText from "../ThemedText";
 import ThemedView from "../ThemedView";

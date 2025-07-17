@@ -1,11 +1,10 @@
 import { StyleSheet } from "react-native";
-import React from "react";
 
 import ThemedView from "../ThemedView";
 
-import TopBar from "./components/TopBar";
-import StoriesBar from "./components/StoriesBar";
 import Feed from "./components/Feed";
+import StoriesBar from "./components/StoriesBar";
+import TopBar from "./components/TopBar";
 
 export default function FeedSection() {
   return (
