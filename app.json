@@ -21,7 +21,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./src/assets/images/instagram-logo.svg"
+      "favicon": "./src/assets/images/favicon.png"
     },
     "plugins": [
       "expo-router",
