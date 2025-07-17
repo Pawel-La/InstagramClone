@@ -1,15 +1,15 @@
-import { useState, PropsWithChildren } from "react";
+import { PropsWithChildren, useState } from "react";
 import {
   Pressable,
-  View,
-  StyleProp,
-  TextStyle,
-  StyleSheet,
   PressableProps,
+  StyleProp,
+  StyleSheet,
+  TextStyle,
+  View,
 } from "react-native";
 
+import { useThemeColors } from "@/src/hooks/useThemeColors";
 import ThemedText from "../../ThemedText";
-import { useThemeColors } from "@/hooks/useThemeColors";
 
 type SideBarButtonProps = PropsWithChildren & {
   text: string;

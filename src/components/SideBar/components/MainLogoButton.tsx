@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Pressable, PressableProps, StyleSheet } from "react-native";
 
-import ThemedView from "@/components/ThemedView";
-import ThemedCustomIcon from "@/components/ThemedCustomIcon";
-import { useThemeColors } from "@/hooks/useThemeColors";
+import ThemedCustomIcon from "@/src/components/ThemedCustomIcon";
+import ThemedView from "@/src/components/ThemedView";
+import { useThemeColors } from "@/src/hooks/useThemeColors";
 
 type MainLogoButtonProps = {
   onPress?: PressableProps["onPress"];

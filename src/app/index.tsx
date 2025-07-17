@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
 
-import ThemedView from "@/components/ThemedView";
+import ThemedView from "@/src/components/ThemedView";
 
-import SideBar from "@/components/SideBar/SideBar";
-import FeedSection from "@/components/FeedSection/FeedSection";
-import RightSection from "@/components/RightSection/RightSection";
+import FeedSection from "@/src/components/FeedSection/FeedSection";
+import RightSection from "@/src/components/RightSection/RightSection";
+import SideBar from "@/src/components/SideBar/SideBar";
 
 export default function Index() {
   return (

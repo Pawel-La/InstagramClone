@@ -1,5 +1,5 @@
+import { useThemeColors } from "@/src/hooks/useThemeColors";
 import { MaterialIcons } from "@expo/vector-icons";
-import { useThemeColors } from "@/hooks/useThemeColors";
 import type { ComponentProps } from "react";
 
 type MaterialIconsProps = ComponentProps<typeof MaterialIcons>;

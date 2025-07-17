@@ -1,12 +1,12 @@
-import { StyleSheet, Image } from "react-native";
+import { Image, StyleSheet } from "react-native";
 
 import { useRouter } from "expo-router";
 
-import ThemedView from "../ThemedView";
-import ThemedIcon from "../ThemedIcon";
 import ThemedCustomIcon from "../ThemedCustomIcon";
-import SideBarButton from "./components/SideBarButton";
+import ThemedIcon from "../ThemedIcon";
+import ThemedView from "../ThemedView";
 import MainLogoButton from "./components/MainLogoButton";
+import SideBarButton from "./components/SideBarButton";
 
 export default function SideBar() {
   const router = useRouter();
@@ -67,7 +67,7 @@ export default function SideBar() {
                 height: 24,
                 borderRadius: 12,
               }}
-              source={require("@/assets/images/user_image.jpg")}
+              source={require("@/src/assets/images/user_image.jpg")}
             />
           </SideBarButton>
         </ThemedView>

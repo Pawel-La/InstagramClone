@@ -1,10 +1,10 @@
 import { SvgProps } from "react-native-svg";
 
-import { useThemeColors } from "@/hooks/useThemeColors";
-import InstagramWrittenLogo from "../assets/images/instagram-written-logo.svg";
-import DirectionLogo from "../assets/images/direction.svg";
-import HeartLogo from "../assets/images/heart.svg";
-import MoreLogo from "../assets/images/more.svg";
+import DirectionLogo from "@/src/assets/images/direction.svg";
+import HeartLogo from "@/src/assets/images/heart.svg";
+import InstagramWrittenLogo from "@/src/assets/images/instagram-written-logo.svg";
+import MoreLogo from "@/src/assets/images/more.svg";
+import { useThemeColors } from "@/src/hooks/useThemeColors";
 
 type CustomIconNameProps = "direction" | "heart" | "more" | "instagram-written";
 

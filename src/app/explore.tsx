@@ -1,6 +1,6 @@
-import ThemedView from "../components/ThemedView";
+import SideBar from "@/src/components/SideBar/SideBar";
 import { StyleSheet } from "react-native";
-import SideBar from "@/components/SideBar/SideBar";
+import ThemedView from "../components/ThemedView";
 
 export default function Explore() {
   return (
