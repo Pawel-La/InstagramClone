@@ -1,7 +1,6 @@
-import { StyleSheet } from "react-native";
-
 import ThemedText from "@/src/components/ThemedText";
 import ThemedView from "@/src/components/ThemedView";
+import styles from "./styles";
 
 export default function RightSection() {
   return (
@@ -10,10 +9,3 @@ export default function RightSection() {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  rightSection: {
-    width: 319,
-    backgroundColor: "red",
-  },
-});
