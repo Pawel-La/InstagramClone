@@ -1,4 +1,5 @@
-import { Image, StyleSheet } from "react-native";
+import { Image } from "react-native";
+import styles from "./styles";
 
 import { useRouter } from "expo-router";
 
@@ -79,14 +80,3 @@ export default function SideBar() {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: 244,
-    borderRightColor: "gray",
-    borderRightWidth: 1,
-    paddingBottom: 20,
-    paddingTop: 8,
-    paddingHorizontal: 12,
-  },
-});

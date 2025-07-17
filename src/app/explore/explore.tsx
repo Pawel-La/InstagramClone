@@ -1,4 +1,4 @@
-import SideBar from "@/src/components/SideBar/SideBar";
+import SideBar from "@/src/components/SideBar";
 import ThemedView from "@/src/components/ThemedView";
 import styles from "./styles";
 

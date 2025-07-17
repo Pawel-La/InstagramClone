@@ -1,6 +1,6 @@
 import styles from "./styles";
 
-import SideBar from "@/src/components/SideBar/SideBar";
+import SideBar from "@/src/components/SideBar";
 import ThemedView from "@/src/components/ThemedView";
 import FeedSection from "./components/FeedSection";
 import RightSection from "./components/RightSection";
