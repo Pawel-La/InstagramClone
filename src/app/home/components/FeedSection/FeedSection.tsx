@@ -1,9 +1,6 @@
+import ThemedText from "@/src/components/ThemedText";
 import ThemedView from "@/src/components/ThemedView";
 import styles from "./styles";
-
-import Feed from "../Feed";
-import StoriesBar from "../StoriesBar";
-import TopBar from "../TopBar";
 
 export default function FeedSection() {
   return (
@@ -11,6 +8,35 @@ export default function FeedSection() {
       <TopBar />
       <StoriesBar />
       <Feed />
+    </ThemedView>
+  );
+}
+
+function TopBar() {
+  return (
+    <ThemedView style={styles.topBar}>
+      <ThemedView>
+        <ThemedText style={styles.topBarText}>Dla Ciebie</ThemedText>
+      </ThemedView>
+      <ThemedView>
+        <ThemedText style={styles.topBarText}>Obserwowani</ThemedText>
+      </ThemedView>
+    </ThemedView>
+  );
+}
+
+function StoriesBar() {
+  return (
+    <ThemedView style={styles.storiesBar}>
+      <ThemedText>1111</ThemedText>
+    </ThemedView>
+  );
+}
+
+function Feed() {
+  return (
+    <ThemedView style={styles.feedSection}>
+      <ThemedText>1111</ThemedText>
     </ThemedView>
   );
 }
