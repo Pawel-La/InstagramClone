@@ -1,8 +1,8 @@
-import { StyleSheet } from "react-native";
 import React from "react";
+import { StyleSheet } from "react-native";
 
-import ThemedView from "../../ThemedView";
-import ThemedText from "../../ThemedText";
+import ThemedText from "@/src/components/ThemedText";
+import ThemedView from "@/src/components/ThemedView";
 
 export default function Feed() {
   return (

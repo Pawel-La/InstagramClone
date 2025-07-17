@@ -9,5 +9,5 @@ module.exports = {
     ...tsJestTransformCfg,
   },
   preset: "ts-jest",
-  testMatch: ["**/*.test.ts"],
+  testMatch: ["**/*.test.tsx"],
 };

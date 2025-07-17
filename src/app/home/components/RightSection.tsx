@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-import ThemedText from "../ThemedText";
-import ThemedView from "../ThemedView";
+import ThemedText from "@/src/components/ThemedText";
+import ThemedView from "@/src/components/ThemedView";
 
 export default function RightSection() {
   return (
