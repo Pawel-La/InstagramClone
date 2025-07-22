@@ -26,7 +26,7 @@ export default function ThemedCustomIcon({
   const width = size ?? props["width"];
   const height = size ?? props["width"];
   const iconFill = fill ?? themeColors.icon_fill;
-  const iconColor = color ?? themeColors.text;
+  const iconColor = color ?? themeColors.text.default;
 
   switch (name) {
     case "direction": {

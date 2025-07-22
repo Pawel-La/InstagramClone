@@ -1,6 +1,5 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren } from "react";
 import {
-  Pressable,
   PressableProps,
   StyleProp,
   StyleSheet,
@@ -9,6 +8,7 @@ import {
 } from "react-native";
 
 import { useThemeColors } from "@/src/hooks/useThemeColors";
+import Button from "../../Button";
 import ThemedText from "../../ThemedText";
 
 type SideBarButtonProps = PropsWithChildren & {
@@ -24,28 +24,18 @@ export default function SideBarButton({
   children,
 }: SideBarButtonProps) {
   const themeColors = useThemeColors();
-  const [isPressed, setIsPressed] = useState(false);
 
   return (
-    <Pressable
-      onPressIn={() => {
-        setIsPressed(true);
-      }}
-      onPressOut={() => {
-        setIsPressed(false);
-      }}
+    <Button
       onPress={onPress}
-    >
-      {({ hovered }) => (
+      renderContent={(isPressed, isHovered) => (
         <View
           style={[
             styles.container,
             {
-              backgroundColor: hovered
-                ? themeColors.button_background_hovered
-                : themeColors.button_background,
-            },
-            {
+              backgroundColor: isHovered
+                ? themeColors.button.background.hovered
+                : themeColors.button.background.default,
               transform: [{ scale: isPressed ? 0.96 : 1 }],
             },
           ]}
@@ -56,7 +46,7 @@ export default function SideBarButton({
           </ThemedText>
         </View>
       )}
-    </Pressable>
+    />
   );
 }
 

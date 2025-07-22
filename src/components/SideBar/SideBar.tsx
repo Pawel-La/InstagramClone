@@ -3,23 +3,39 @@ import styles from "./styles";
 
 import { useRouter } from "expo-router";
 
+import { useThemeColors } from "@/src/hooks/useThemeColors";
+import Button from "../Button";
 import ThemedCustomIcon from "../ThemedCustomIcon";
 import ThemedIcon from "../ThemedIcon";
 import ThemedView from "../ThemedView";
-import MainLogoButton from "./components/MainLogoButton";
 import SideBarButton from "./components/SideBarButton";
 
 export default function SideBar() {
   const router = useRouter();
+  const themeColors = useThemeColors();
 
   return (
     <ThemedView style={styles.container}>
       <ThemedView style={{ flex: 1 }}>
-        <MainLogoButton
-          onPress={() => {
-            router.navigate("/");
-          }}
-        />
+        <ThemedView style={styles.mainLogoContainer}>
+          <Button
+            onPress={() => {
+              router.navigate("/");
+            }}
+            renderContent={(isPressed, _i) => (
+              <ThemedCustomIcon
+                name="instagram-written"
+                width={100}
+                height={32}
+                color={
+                  isPressed
+                    ? themeColors.text.hovered
+                    : themeColors.text.default
+                }
+              />
+            )}
+          />
+        </ThemedView>
 
         <ThemedView style={{ flex: 1 }}>
           <SideBarButton

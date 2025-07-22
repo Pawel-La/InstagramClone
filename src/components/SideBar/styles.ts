@@ -9,6 +9,12 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingHorizontal: 12,
   },
+  mainLogoContainer: {
+    paddingTop: 30,
+    paddingBottom: 11,
+    paddingHorizontal: 12,
+    marginBottom: 19,
+  },
 });
 
 export default styles;

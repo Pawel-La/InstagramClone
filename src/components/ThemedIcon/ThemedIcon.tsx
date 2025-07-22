@@ -6,7 +6,7 @@ type MaterialIconsProps = ComponentProps<typeof MaterialIcons>;
 
 const ThemedIcon = ({ color, ...props }: MaterialIconsProps) => {
   const themeColors = useThemeColors();
-  const iconColor = color ?? themeColors.text;
+  const iconColor = color ?? themeColors.text.default;
 
   return <MaterialIcons color={iconColor} {...props} />;
 };
