@@ -15,6 +15,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 19,
   },
+  button: {
+    flexDirection: "row",
+    padding: 12,
+    marginVertical: 4,
+    gap: 16,
+  },
 });
 
 export default styles;

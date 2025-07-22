@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React from "react";
 import { Image } from "react-native";
 import styles from "./styles";
 
@@ -11,12 +11,10 @@ import ThemedIcon from "../ThemedIcon";
 import ThemedView from "../ThemedView";
 import SideBarButton from "./SideBarButton";
 
-type Icon = ReactNode;
-
 type NavItem = {
   label: string;
   path?: Href;
-  icon: Icon;
+  icon: React.ReactElement;
 };
 type NavItems = NavItem[];
 
@@ -66,10 +64,8 @@ export default function SideBar() {
       <ThemedView style={{ flex: 1 }}>
         <ThemedView style={styles.mainLogoContainer}>
           <Button
-            onPress={() => {
-              router.navigate("/");
-            }}
-            renderContent={(isPressed, _i) => (
+            onPress={() => router.navigate("/")}
+            renderContent={({ isPressed }) => (
               <ThemedCustomIcon
                 name="instagram-written"
                 width={100}

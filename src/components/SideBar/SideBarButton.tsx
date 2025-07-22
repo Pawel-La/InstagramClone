@@ -1,15 +1,10 @@
 import { PropsWithChildren } from "react";
-import {
-  PressableProps,
-  StyleProp,
-  StyleSheet,
-  TextStyle,
-  View,
-} from "react-native";
+import { PressableProps, StyleProp, TextStyle, View } from "react-native";
 
 import { useThemeColors } from "@/src/hooks/useThemeColors";
 import Button from "../Button";
 import ThemedText from "../ThemedText";
+import styles from "./styles";
 
 type SideBarButtonProps = PropsWithChildren & {
   text: string;
@@ -24,18 +19,19 @@ export default function SideBarButton({
   children,
 }: SideBarButtonProps) {
   const themeColors = useThemeColors();
+  const buttonBackground = themeColors.button.background;
 
   return (
     <Button
       onPress={onPress}
-      renderContent={(isPressed, isHovered) => (
+      renderContent={({ isPressed, isHovered }) => (
         <View
           style={[
-            styles.container,
+            styles.button,
             {
               backgroundColor: isHovered
-                ? themeColors.button.background.hovered
-                : themeColors.button.background.default,
+                ? buttonBackground.hovered
+                : buttonBackground.default,
               transform: [{ scale: isPressed ? 0.96 : 1 }],
             },
           ]}
@@ -49,12 +45,3 @@ export default function SideBarButton({
     />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    padding: 12,
-    marginVertical: 4,
-    gap: 16,
-  },
-});

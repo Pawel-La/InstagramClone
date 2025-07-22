@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Pressable, PressableProps } from "react-native";
 
+type renderContentProps = {
+  isPressed?: boolean;
+  isHovered?: boolean;
+};
+
 type ButtonProps = {
   onPress?: PressableProps["onPress"];
-  renderContent: (isPressed: boolean, isHovered: boolean) => React.ReactElement;
+  renderContent: (props: renderContentProps) => React.ReactElement;
 };
 
 export default function Button({ onPress, renderContent }: ButtonProps) {
@@ -18,7 +23,7 @@ export default function Button({ onPress, renderContent }: ButtonProps) {
       onHoverIn={() => setIsHovered(true)}
       onHoverOut={() => setIsHovered(false)}
     >
-      {renderContent(isPressed, isHovered)}
+      {renderContent({ isPressed, isHovered })}
     </Pressable>
   );
 }
