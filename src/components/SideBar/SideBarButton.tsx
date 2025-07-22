@@ -8,8 +8,8 @@ import {
 } from "react-native";
 
 import { useThemeColors } from "@/src/hooks/useThemeColors";
-import Button from "../../Button";
-import ThemedText from "../../ThemedText";
+import Button from "../Button";
+import ThemedText from "../ThemedText";
 
 type SideBarButtonProps = PropsWithChildren & {
   text: string;
