@@ -15,12 +15,16 @@ export default function FeedSection() {
 function TopBar() {
   return (
     <ThemedView style={styles.topBar}>
-      <ThemedView>
-        <ThemedText style={styles.topBarText}>Dla Ciebie</ThemedText>
-      </ThemedView>
-      <ThemedView>
-        <ThemedText style={styles.topBarText}>Obserwowani</ThemedText>
-      </ThemedView>
+      <TopBarText text={"Dla Ciebie"} />
+      <TopBarText text={"Obserwowani"} />
+    </ThemedView>
+  );
+}
+
+function TopBarText({ text }: { text: string }) {
+  return (
+    <ThemedView>
+      <ThemedText style={styles.topBarText}>{text}</ThemedText>
     </ThemedView>
   );
 }

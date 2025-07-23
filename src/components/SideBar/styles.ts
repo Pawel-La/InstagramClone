@@ -15,11 +15,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 19,
   },
-  button: {
+  sideBarButton: {
     flexDirection: "row",
     padding: 12,
     marginVertical: 4,
     gap: 16,
+  },
+  sideBarButtonText: {
+    fontSize: 16,
+    lineHeight: 24,
   },
 });
 

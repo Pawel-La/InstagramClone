@@ -13,6 +13,10 @@ export const Colors = {
       default: black,
       hovered: black50,
     },
+    logo: {
+      default: black,
+      pressed: black50,
+    },
     background: white,
     button: {
       background: {
@@ -26,6 +30,10 @@ export const Colors = {
     text: {
       default: whiteish,
       hovered: white50,
+    },
+    logo: {
+      default: whiteish,
+      pressed: white50,
     },
     background: blackish,
     button: {
