@@ -1,31 +1,86 @@
+import Button from "@/src/components/Button";
 import ThemedText from "@/src/components/ThemedText";
 import ThemedView from "@/src/components/ThemedView";
+import { useState } from "react";
+import { PressableProps } from "react-native";
 import styles from "./styles";
 
+enum Variant {
+  "home",
+  "following",
+}
+
+function useVariant() {
+  const [variant, setVariant] = useState(Variant.home);
+
+  function showHome() {
+    setVariant(Variant.home);
+  }
+
+  function showFollowing() {
+    setVariant(Variant.following);
+  }
+
+  return { variant, showHome, showFollowing };
+}
+
 export default function FeedSection() {
+  const { variant, showHome, showFollowing } = useVariant();
+
   return (
     <ThemedView style={styles.mainSection}>
-      <TopBar />
+      <TopBar
+        variant={variant}
+        showHome={showHome}
+        showFollowing={showFollowing}
+      />
       <StoriesBar />
       <Feed />
     </ThemedView>
   );
 }
 
-function TopBar() {
+type TopBarProps = {
+  variant: Variant;
+  showHome: () => void;
+  showFollowing: () => void;
+};
+
+function TopBar({ variant, showHome, showFollowing }: TopBarProps) {
   return (
     <ThemedView style={styles.topBar}>
-      <TopBarText text={"Dla Ciebie"} />
-      <TopBarText text={"Obserwowani"} />
+      <TopBarButton
+        text={"Dla Ciebie"}
+        selected={variant === Variant.home}
+        onPress={showHome}
+      />
+      <TopBarButton
+        text={"Obserwowani"}
+        selected={variant === Variant.following}
+        onPress={showFollowing}
+      />
     </ThemedView>
   );
 }
 
-function TopBarText({ text }: { text: string }) {
+type TopBarButtonProps = {
+  text: string;
+  selected: boolean;
+  onPress: PressableProps["onPress"];
+};
+
+function TopBarButton({ text, selected, onPress }: TopBarButtonProps) {
   return (
-    <ThemedView>
-      <ThemedText style={styles.topBarText}>{text}</ThemedText>
-    </ThemedView>
+    <Button
+      onPress={onPress}
+      renderContent={() => (
+        <ThemedText
+          style={[styles.topBarText, { color: selected ? "red" : "gray" }]}
+        >
+          {text}
+        </ThemedText>
+      )}
+    />
   );
 }
 
