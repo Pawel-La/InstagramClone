@@ -11,6 +11,42 @@ import ThemedIcon from "../ThemedIcon";
 import ThemedText from "../ThemedText";
 import ThemedView from "../ThemedView";
 
+export default function SideBar() {
+  const router = useRouter();
+
+  return (
+    <ThemedView style={styles.container}>
+      <ThemedView style={{ flex: 1 }}>
+        <MainLogo router={router} />
+        <NavigationButtons router={router} />
+        <MoreButton />
+      </ThemedView>
+    </ThemedView>
+  );
+}
+
+function MainLogo({ router }: { router: Router }) {
+  const themeColors = useThemeColors();
+
+  return (
+    <ThemedView style={styles.mainLogoContainer}>
+      <Button
+        onPress={() => router.navigate("/")}
+        renderContent={({ isPressed }) => (
+          <ThemedCustomIcon
+            name="instagram-written"
+            width={100}
+            height={32}
+            color={
+              isPressed ? themeColors.logo.pressed : themeColors.logo.default
+            }
+          />
+        )}
+      />
+    </ThemedView>
+  );
+}
+
 type NavItem = {
   label: string;
   icon: React.ReactElement;
@@ -62,42 +98,6 @@ const navItems: NavItem[] = [
     ),
   },
 ];
-
-export default function SideBar() {
-  const router = useRouter();
-
-  return (
-    <ThemedView style={styles.container}>
-      <ThemedView style={{ flex: 1 }}>
-        <MainLogo router={router} />
-        <NavigationButtons router={router} />
-        <MoreButton />
-      </ThemedView>
-    </ThemedView>
-  );
-}
-
-function MainLogo({ router }: { router: Router }) {
-  const themeColors = useThemeColors();
-
-  return (
-    <ThemedView style={styles.mainLogoContainer}>
-      <Button
-        onPress={() => router.navigate("/")}
-        renderContent={({ isPressed }) => (
-          <ThemedCustomIcon
-            name="instagram-written"
-            width={100}
-            height={32}
-            color={
-              isPressed ? themeColors.logo.pressed : themeColors.logo.default
-            }
-          />
-        )}
-      />
-    </ThemedView>
-  );
-}
 
 function NavigationButtons({ router }: { router: Router }) {
   return (
