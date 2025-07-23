@@ -2,7 +2,7 @@ import React from "react";
 import { Image, PressableProps, View } from "react-native";
 import styles from "./styles";
 
-import { Href, Router, useRouter } from "expo-router";
+import { Href, useRouter } from "expo-router";
 
 import { useThemeColors } from "@/src/hooks/useThemeColors";
 import Button from "../Button";
@@ -12,21 +12,20 @@ import ThemedText from "../ThemedText";
 import ThemedView from "../ThemedView";
 
 export default function SideBar() {
-  const router = useRouter();
-
   return (
     <ThemedView style={styles.container}>
       <ThemedView style={{ flex: 1 }}>
-        <MainLogo router={router} />
-        <NavigationButtons router={router} />
+        <MainLogoButton />
+        <NavigationButtons />
         <MoreButton />
       </ThemedView>
     </ThemedView>
   );
 }
 
-function MainLogo({ router }: { router: Router }) {
+function MainLogoButton() {
   const themeColors = useThemeColors();
+  const router = useRouter();
 
   return (
     <ThemedView style={styles.mainLogoContainer}>
@@ -99,7 +98,9 @@ const navItems: NavItem[] = [
   },
 ];
 
-function NavigationButtons({ router }: { router: Router }) {
+function NavigationButtons() {
+  const router = useRouter();
+
   return (
     <ThemedView style={{ flex: 1 }}>
       {navItems.map((navItem) => {
