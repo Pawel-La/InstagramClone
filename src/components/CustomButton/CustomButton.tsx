@@ -6,12 +6,15 @@ type renderContentProps = {
   isHovered?: boolean;
 };
 
-type ButtonProps = {
+type CustomButtonProps = {
   onPress?: PressableProps["onPress"];
   renderContent: (props: renderContentProps) => React.ReactElement;
 };
 
-export default function Button({ onPress, renderContent }: ButtonProps) {
+export default function CustomButton({
+  onPress,
+  renderContent,
+}: CustomButtonProps) {
   const [isPressed, setIsPressed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
