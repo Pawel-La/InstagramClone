@@ -4,7 +4,8 @@ import DirectionIcon from "@/src/assets/images/direction.svg";
 import HeartIcon from "@/src/assets/images/heart.svg";
 import InstagramWrittenIcon from "@/src/assets/images/instagram-written-logo.svg";
 import MoreIcon from "@/src/assets/images/more.svg";
-import { useThemeColors } from "@/src/hooks/useThemeColors";
+import { useThemeContext } from "@/src/context/ThemeContext";
+import { Colors } from "@/src/utils/constants";
 
 type CustomIconNameProps = "direction" | "heart" | "more" | "instagram-written";
 
@@ -22,7 +23,8 @@ export default function ThemedCustomIcon({
   color,
   ...props
 }: ThemedCustomIconProps) {
-  const themeColors = useThemeColors();
+  const theme = useThemeContext();
+  const themeColors = Colors[theme];
   const width = size ?? props["width"];
   const height = size ?? props["width"];
   const iconFill = fill ?? themeColors.icon_fill;

@@ -4,7 +4,8 @@ import styles from "./styles";
 
 import { Href, useRouter } from "expo-router";
 
-import { useThemeColors } from "@/src/hooks/useThemeColors";
+import { useThemeContext } from "@/src/context/ThemeContext";
+import { Colors } from "@/src/utils/constants";
 import CustomButton from "../CustomButton";
 import ThemedCustomIcon from "../ThemedCustomIcon";
 import ThemedIcon from "../ThemedIcon";
@@ -24,7 +25,8 @@ export default function SideBar() {
 }
 
 function MainLogoButton() {
-  const themeColors = useThemeColors();
+  const theme = useThemeContext();
+  const themeColors = Colors[theme];
   const router = useRouter();
 
   return (
@@ -137,7 +139,8 @@ type SideBarButtonProps = {
 };
 
 function SideBarButton({ icon, text, onPress }: SideBarButtonProps) {
-  const themeColors = useThemeColors();
+  const theme = useThemeContext();
+  const themeColors = Colors[theme];
   const buttonBackground = themeColors.button.background;
 
   return (
