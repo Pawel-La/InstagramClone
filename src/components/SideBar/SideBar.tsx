@@ -5,7 +5,7 @@ import styles from "./styles";
 import { Href, useRouter } from "expo-router";
 
 import { useThemeColors } from "@/src/hooks/useThemeColors";
-import Button from "../Button";
+import CustomButton from "../CustomButton";
 import ThemedCustomIcon from "../ThemedCustomIcon";
 import ThemedIcon from "../ThemedIcon";
 import ThemedText from "../ThemedText";
@@ -29,7 +29,7 @@ function MainLogoButton() {
 
   return (
     <ThemedView style={styles.mainLogoContainer}>
-      <Button
+      <CustomButton
         onPress={() => router.navigate("/")}
         renderContent={({ isPressed }) => (
           <ThemedCustomIcon
@@ -141,7 +141,7 @@ function SideBarButton({ icon, text, onPress }: SideBarButtonProps) {
   const buttonBackground = themeColors.button.background;
 
   return (
-    <Button
+    <CustomButton
       onPress={onPress}
       renderContent={({ isPressed, isHovered }) => (
         <View
