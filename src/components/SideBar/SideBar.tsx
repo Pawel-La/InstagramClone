@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Image,
-  PressableProps,
-  StyleProp,
-  TextStyle,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { Image } from 'react-native';
 import styles from './styles';
 
 import { Href, useRouter } from 'expo-router';
@@ -18,9 +11,9 @@ import {
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { BORDER_RADIUS } from '@/src/utils/theme';
 import CustomButton from '../CustomButton';
+import SideBarButton from '../SideBarButton';
 import ThemedCustomIcon from '../ThemedCustomIcon';
 import ThemedIcon from '../ThemedIcon';
-import ThemedText from '../ThemedText';
 import ThemedView from '../ThemedView';
 
 // todo simplify sidebar logic, as the component starts to grow a little too big
@@ -132,9 +125,7 @@ function NavigationButtons() {
       {navItems.map((navItem) => {
         const onPress = () => {
           setId(navItem.id);
-          if (navItem.path) {
-            router.navigate(navItem.path!);
-          }
+          navItem.path && router.navigate(navItem.path);
         };
 
         return (
@@ -143,7 +134,9 @@ function NavigationButtons() {
             icon={navItem.icon}
             text={navItem.label}
             onPress={onPress}
-            textStyle={id === navItem.id ? styles.selectedButton : undefined}
+            textStyle={
+              id === navItem.id ? styles.selectedButtonText : undefined
+            }
           />
         );
       })}
@@ -161,50 +154,9 @@ function MoreButton() {
       onPress={() => {
         setId(SideBarItemId.more);
       }}
-      textStyle={id === SideBarItemId.more ? styles.selectedButton : undefined}
-    />
-  );
-}
-
-type SideBarButtonProps = {
-  icon: React.ReactElement;
-  text: string;
-  onPress?: PressableProps['onPress'];
-  viewStyle?: StyleProp<ViewStyle>;
-  textStyle?: StyleProp<TextStyle>;
-};
-
-function SideBarButton({
-  icon,
-  text,
-  onPress,
-  viewStyle,
-  textStyle,
-}: SideBarButtonProps) {
-  const { theme: theme } = useThemeContext();
-
-  return (
-    <CustomButton
-      onPress={onPress}
-      renderContent={({ isPressed, isHovered }) => (
-        <View
-          style={[
-            styles.sideBarButton,
-            {
-              backgroundColor: isHovered
-                ? theme.background_hovered
-                : theme.background,
-              transform: [{ scale: isPressed ? 0.96 : 1 }],
-            },
-            viewStyle,
-          ]}
-        >
-          {icon}
-          <ThemedText style={[styles.sideBarButtonText, textStyle]}>
-            {text}
-          </ThemedText>
-        </View>
-      )}
+      textStyle={
+        id === SideBarItemId.more ? styles.selectedButtonText : undefined
+      }
     />
   );
 }

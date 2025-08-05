@@ -1,10 +1,4 @@
-import {
-  BORDER_RADIUS,
-  BORDER_SIZE,
-  FONT_SIZE,
-  LINE_HEIGHT,
-  SPACING,
-} from '@/src/utils/theme';
+import { BORDER_SIZE, SPACING } from '@/src/utils/theme';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -21,18 +15,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.md,
     marginBottom: SPACING.xl,
   },
-  sideBarButton: {
-    flexDirection: 'row',
-    padding: SPACING.md,
-    marginVertical: SPACING.xxs,
-    gap: SPACING.lg,
-    borderRadius: BORDER_RADIUS.md,
-  },
-  sideBarButtonText: {
-    fontSize: FONT_SIZE.md,
-    lineHeight: LINE_HEIGHT.lg,
-  },
-  selectedButton: {
+  selectedButtonText: {
     fontWeight: '700',
   },
 });
