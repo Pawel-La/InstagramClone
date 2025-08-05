@@ -1,59 +1,57 @@
-import { SvgProps } from "react-native-svg";
+import { SvgProps } from 'react-native-svg';
 
-import DirectionIcon from "@/src/assets/images/direction.svg";
-import HeartIcon from "@/src/assets/images/heart.svg";
-import InstagramWrittenIcon from "@/src/assets/images/instagram-written-logo.svg";
-import MoreIcon from "@/src/assets/images/more.svg";
-import { useThemeContext } from "@/src/context/ThemeContext";
-import { Colors } from "@/src/utils/constants";
+import DirectionIcon from '@/src/assets/images/direction.svg';
+import HeartIcon from '@/src/assets/images/heart.svg';
+import InstagramWrittenIcon from '@/src/assets/images/instagram-written-logo.svg';
+import MoreIcon from '@/src/assets/images/more.svg';
+import { useThemeContext } from '@/src/context/ThemeContext';
 
-type CustomIconNameProps = "direction" | "heart" | "more" | "instagram-written";
+type CustomIconNameProps = 'direction' | 'heart' | 'more' | 'instagram-written';
 
 type ThemedCustomIconProps = SvgProps & {
   name: CustomIconNameProps;
   size?: number;
-  fill?: string;
-  color?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
 };
 
 export default function ThemedCustomIcon({
   name,
   size,
-  fill,
-  color,
+  primaryColor,
+  secondaryColor,
   ...props
 }: ThemedCustomIconProps) {
-  const theme = useThemeContext();
-  const themeColors = Colors[theme];
-  const width = size ?? props["width"];
-  const height = size ?? props["width"];
-  const iconFill = fill ?? themeColors.icon_fill;
-  const iconColor = color ?? themeColors.text.default;
+  const { theme: theme } = useThemeContext();
+  const width = size ?? props['width'];
+  const height = size ?? props['height'];
+  const primary = primaryColor ?? theme.primary;
+  const secondary = secondaryColor ?? theme.background;
 
   switch (name) {
-    case "direction": {
+    case 'direction': {
       return (
         <DirectionIcon
-          fill={iconFill}
-          color={iconColor}
+          color={primary}
+          fill={secondary}
           width={width}
           height={height}
           {...props}
         />
       );
     }
-    case "heart": {
+    case 'heart': {
       return (
-        <HeartIcon fill={iconColor} width={width} height={height} {...props} />
+        <HeartIcon fill={primary} width={width} height={height} {...props} />
       );
     }
-    case "more": {
+    case 'more': {
       return (
-        <MoreIcon color={iconColor} width={width} height={height} {...props} />
+        <MoreIcon color={primary} width={width} height={height} {...props} />
       );
     }
-    case "instagram-written": {
-      return <InstagramWrittenIcon color={iconColor} {...props} />;
+    case 'instagram-written': {
+      return <InstagramWrittenIcon color={primary} {...props} />;
     }
   }
 }

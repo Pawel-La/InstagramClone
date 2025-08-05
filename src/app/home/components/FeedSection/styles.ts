@@ -1,30 +1,36 @@
-import { StyleSheet } from "react-native";
+import {
+  BORDER_SIZE,
+  FONT_SIZE,
+  FONT_WEIGHT,
+  LINE_HEIGHT,
+  SPACING,
+} from '@/src/utils/theme';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   mainSection: {
     width: 630,
-    gap: 16,
-    backgroundColor: "blue",
+    gap: SPACING.lg,
   },
   topBar: {
-    flexDirection: "row",
-    gap: 12,
-    paddingVertical: 10,
-    borderBottomColor: "red",
-    borderBottomWidth: 0.8,
+    flexDirection: 'row',
+    gap: SPACING.md,
+    paddingVertical: SPACING.sm,
+    borderBottomWidth: BORDER_SIZE.sm,
   },
   topBarText: {
-    fontSize: 16,
-    lineHeight: 20,
+    fontSize: FONT_SIZE.md,
+    lineHeight: LINE_HEIGHT.md,
+    fontWeight: FONT_WEIGHT.bold,
   },
   storiesBar: {
-    padding: 8,
-    backgroundColor: "yellow",
+    padding: SPACING.xs,
+    backgroundColor: 'yellow',
   },
   feedSection: {
     width: 470,
-    backgroundColor: "purple",
-    alignSelf: "center",
+    backgroundColor: 'purple',
+    alignSelf: 'center',
   },
 });
 

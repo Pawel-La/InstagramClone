@@ -1,16 +1,16 @@
-import React from "react";
-import { Image, PressableProps, View } from "react-native";
-import styles from "./styles";
+import React from 'react';
+import { Image, PressableProps, View } from 'react-native';
+import styles from './styles';
 
-import { Href, useRouter } from "expo-router";
+import { Href, useRouter } from 'expo-router';
 
-import { useThemeContext } from "@/src/context/ThemeContext";
-import { Colors } from "@/src/utils/constants";
-import CustomButton from "../CustomButton";
-import ThemedCustomIcon from "../ThemedCustomIcon";
-import ThemedIcon from "../ThemedIcon";
-import ThemedText from "../ThemedText";
-import ThemedView from "../ThemedView";
+import { useThemeContext } from '@/src/context/ThemeContext';
+import { BORDER_RADIUS } from '@/src/utils/theme';
+import CustomButton from '../CustomButton';
+import ThemedCustomIcon from '../ThemedCustomIcon';
+import ThemedIcon from '../ThemedIcon';
+import ThemedText from '../ThemedText';
+import ThemedView from '../ThemedView';
 
 export default function SideBar() {
   return (
@@ -25,22 +25,19 @@ export default function SideBar() {
 }
 
 function MainLogoButton() {
-  const theme = useThemeContext();
-  const themeColors = Colors[theme];
+  const { theme: theme } = useThemeContext();
   const router = useRouter();
 
   return (
     <ThemedView style={styles.mainLogoContainer}>
       <CustomButton
-        onPress={() => router.navigate("/")}
+        onPress={() => router.navigate('/')}
         renderContent={({ isPressed }) => (
           <ThemedCustomIcon
             name="instagram-written"
             width={100}
             height={32}
-            color={
-              isPressed ? themeColors.logo.pressed : themeColors.logo.default
-            }
+            primaryColor={isPressed ? theme.secondary : theme.primary}
           />
         )}
       />
@@ -56,45 +53,45 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    label: "Strona główna",
+    label: 'Strona główna',
     icon: <ThemedIcon name="home" size={24} />,
-    path: "/",
+    path: '/',
   },
   {
-    label: "Szukaj",
+    label: 'Szukaj',
     icon: <ThemedIcon name="search" size={24} />,
   },
   {
-    label: "Eksploruj",
+    label: 'Eksploruj',
     icon: <ThemedIcon name="explore" size={24} />,
-    path: "/explore",
+    path: '/explore',
   },
   {
-    label: "Rolki",
+    label: 'Rolki',
     icon: <ThemedIcon name="movie" size={24} />,
   },
   {
-    label: "Wiadomości",
+    label: 'Wiadomości',
     icon: <ThemedCustomIcon name="direction" size={24} />,
   },
   {
-    label: "Powiadomienia",
+    label: 'Powiadomienia',
     icon: <ThemedCustomIcon name="heart" size={24} />,
   },
   {
-    label: "Utwórz",
+    label: 'Utwórz',
     icon: <ThemedIcon name="add-box" size={24} />,
   },
   {
-    label: "Profil",
+    label: 'Profil',
     icon: (
       <Image
         style={{
           width: 24,
           height: 24,
-          borderRadius: 12,
+          borderRadius: BORDER_RADIUS.lg,
         }}
-        source={require("@/src/assets/images/user_image.jpg")}
+        source={require('@/src/assets/images/user_image.jpg')}
       />
     ),
   },
@@ -135,13 +132,11 @@ function MoreButton() {
 type SideBarButtonProps = {
   icon: React.ReactElement;
   text: string;
-  onPress?: PressableProps["onPress"];
+  onPress?: PressableProps['onPress'];
 };
 
 function SideBarButton({ icon, text, onPress }: SideBarButtonProps) {
-  const theme = useThemeContext();
-  const themeColors = Colors[theme];
-  const buttonBackground = themeColors.button.background;
+  const { theme: theme } = useThemeContext();
 
   return (
     <CustomButton
@@ -152,8 +147,8 @@ function SideBarButton({ icon, text, onPress }: SideBarButtonProps) {
             styles.sideBarButton,
             {
               backgroundColor: isHovered
-                ? buttonBackground.hovered
-                : buttonBackground.default,
+                ? theme.background_hovered
+                : theme.background,
               transform: [{ scale: isPressed ? 0.96 : 1 }],
             },
           ]}

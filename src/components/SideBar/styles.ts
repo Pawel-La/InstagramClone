@@ -1,29 +1,36 @@
-import { StyleSheet } from "react-native";
+import {
+  BORDER_RADIUS,
+  BORDER_SIZE,
+  FONT_SIZE,
+  LINE_HEIGHT,
+  SPACING,
+} from '@/src/utils/theme';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     width: 244,
-    borderRightColor: "gray",
-    borderRightWidth: 1,
-    paddingBottom: 20,
-    paddingTop: 8,
-    paddingHorizontal: 12,
+    borderRightWidth: BORDER_SIZE.sm,
+    paddingBottom: SPACING.xl,
+    paddingTop: SPACING.xs,
+    paddingHorizontal: SPACING.md,
   },
   mainLogoContainer: {
-    paddingTop: 30,
-    paddingBottom: 11,
-    paddingHorizontal: 12,
-    marginBottom: 19,
+    paddingTop: SPACING.xxxl,
+    paddingBottom: SPACING.sm,
+    paddingHorizontal: SPACING.md,
+    marginBottom: SPACING.xl,
   },
   sideBarButton: {
-    flexDirection: "row",
-    padding: 12,
-    marginVertical: 4,
-    gap: 16,
+    flexDirection: 'row',
+    padding: SPACING.md,
+    marginVertical: SPACING.xxs,
+    gap: SPACING.lg,
+    borderRadius: BORDER_RADIUS.md,
   },
   sideBarButtonText: {
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: FONT_SIZE.md,
+    lineHeight: LINE_HEIGHT.lg,
   },
 });
 

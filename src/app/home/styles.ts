@@ -1,16 +1,17 @@
-import { StyleSheet } from "react-native";
+import { SPACING } from '@/src/utils/theme';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   scrollScreen: {
     flex: 1,
-    flexDirection: "row",
-    paddingTop: 22,
-    gap: 64,
-    justifyContent: "center",
+    flexDirection: 'row',
+    paddingTop: SPACING.xxl,
+    gap: SPACING.xxxxl,
+    justifyContent: 'center',
   },
 });
 

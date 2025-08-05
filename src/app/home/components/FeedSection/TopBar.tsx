@@ -1,9 +1,10 @@
-import CustomButton from "@/src/components/CustomButton";
-import ThemedText from "@/src/components/ThemedText";
-import ThemedView from "@/src/components/ThemedView";
-import { Variant } from "@/src/hooks/usePageVariant";
-import { PressableProps } from "react-native";
-import styles from "./styles";
+import CustomButton from '@/src/components/CustomButton';
+import ThemedText from '@/src/components/ThemedText';
+import ThemedView from '@/src/components/ThemedView';
+import { useThemeContext } from '@/src/context/ThemeContext';
+import { Variant } from '@/src/hooks/usePageVariant';
+import { PressableProps } from 'react-native';
+import styles from './styles';
 
 type TopBarProps = {
   variant: Variant;
@@ -19,12 +20,12 @@ export default function TopBar({
   return (
     <ThemedView style={styles.topBar}>
       <TopBarButton
-        text={"Dla Ciebie"}
+        text={'Dla Ciebie'}
         selected={variant === Variant.home}
         onPress={showHome}
       />
       <TopBarButton
-        text={"Obserwowani"}
+        text={'Obserwowani'}
         selected={variant === Variant.following}
         onPress={showFollowing}
       />
@@ -35,17 +36,18 @@ export default function TopBar({
 type TopBarButtonProps = {
   text: string;
   selected: boolean;
-  onPress: PressableProps["onPress"];
+  onPress: PressableProps['onPress'];
 };
 
 function TopBarButton({ text, selected, onPress }: TopBarButtonProps) {
+  const { theme: theme } = useThemeContext();
+  const color = selected ? theme.primary : theme.secondary;
+
   return (
     <CustomButton
       onPress={onPress}
       renderContent={() => (
-        <ThemedText
-          style={[styles.topBarText, { color: selected ? "red" : "gray" }]}
-        >
+        <ThemedText style={[styles.topBarText, { color: color }]}>
           {text}
         </ThemedText>
       )}

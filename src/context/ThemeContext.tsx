@@ -1,21 +1,42 @@
-import { createContext, PropsWithChildren, useContext } from "react";
-import { ColorSchemeName } from "react-native";
-import useTheme from "../hooks/useTheme";
+import { createContext, PropsWithChildren, useContext } from 'react';
+import useTheme from '../hooks/useTheme';
 
-const ThemeContext = createContext<ColorSchemeName>(undefined);
+type ThemeProps = {
+  text: string;
+  background: string;
+  background_hovered: string;
+  primary: string;
+  secondary: string;
+  link_primary: string;
+  link_secondary: string;
+  border: string;
+};
+
+type ThemeContextProps =
+  | {
+      theme: ThemeProps;
+      setTheme: (theme: 'light' | 'dark') => void;
+    }
+  | undefined;
+
+const ThemeContext = createContext<ThemeContextProps>(undefined);
 
 export function useThemeContext() {
   const theme = useContext(ThemeContext);
 
   if (theme === undefined) {
-    throw new Error("useThemeContext must be used with ThemeContext");
+    throw new Error('useThemeContext must be used with ThemeContext');
   }
 
-  return theme ?? "dark";
+  return theme;
 }
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  const theme = useTheme();
+  const { theme, setTheme } = useTheme();
 
-  return <ThemeContext value={theme}>{children}</ThemeContext>;
+  return (
+    <ThemeContext value={{ theme: theme, setTheme: setTheme }}>
+      {children}
+    </ThemeContext>
+  );
 }
