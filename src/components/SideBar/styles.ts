@@ -32,6 +32,9 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.md,
     lineHeight: LINE_HEIGHT.lg,
   },
+  selectedButton: {
+    fontWeight: '700',
+  },
 });
 
 export default styles;

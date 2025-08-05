@@ -1,14 +1,17 @@
 import { Stack } from 'expo-router';
+import { SelectedSideBarItemIdProvider } from '../context/SelectedSideBarItemIdContext';
 import { ThemeProvider } from '../context/ThemeContext';
 
 export default function RootLayout() {
   return (
     <ThemeProvider>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <SelectedSideBarItemIdProvider>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+      </SelectedSideBarItemIdProvider>
     </ThemeProvider>
   );
 }
