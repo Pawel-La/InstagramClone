@@ -1,4 +1,4 @@
-import { BORDER_SIZE, SPACING } from '@/src/utils/theme';
+import { BORDER_SIZE, FONT_WEIGHT, SPACING } from '@/src/utils/theme';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.xl,
   },
   selectedButtonText: {
-    fontWeight: '700',
+    fontWeight: FONT_WEIGHT.bold,
   },
 });
 
