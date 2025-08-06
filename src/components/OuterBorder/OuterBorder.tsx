@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import ThemedView from '../ThemedView';
+import getStyles from './styles';
 
 type OuterBorderProps = PropsWithChildren & {
   contentWidth: number;
@@ -16,30 +17,11 @@ export default function OuterBorder({
   borderStyle,
   children,
 }: OuterBorderProps) {
-  return (
-    <ThemedView
-      style={{
-        width: contentWidth,
-        height: contentHeight,
-        position: 'relative',
-        backgroundColor: 'transparent',
-      }}
-    >
-      <ThemedView
-        style={[
-          {
-            position: 'absolute',
-            left: -borderWidth,
-            top: -borderWidth,
-            width: contentWidth + 2 * borderWidth,
-            height: contentHeight + 2 * borderWidth,
-            backgroundColor: 'transparent',
-            borderWidth: borderWidth,
-          },
-          borderStyle,
-        ]}
-      />
+  const styles = getStyles(contentWidth, contentHeight, borderWidth);
 
+  return (
+    <ThemedView style={styles.container}>
+      <ThemedView style={[styles.border, borderStyle]} />
       {children}
     </ThemedView>
   );
