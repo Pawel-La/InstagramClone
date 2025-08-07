@@ -1,5 +1,6 @@
-import { createContext, PropsWithChildren, useContext } from 'react';
+import { createContext, PropsWithChildren } from 'react';
 import useTheme from '../hooks/useTheme';
+import { useContextWrapper } from './helpers';
 
 type ThemeProps = {
   text: string;
@@ -22,13 +23,10 @@ type ThemeContextProps =
 const ThemeContext = createContext<ThemeContextProps>(undefined);
 
 function useThemeContext() {
-  const theme = useContext(ThemeContext);
-
-  if (theme === undefined) {
-    throw new Error('useThemeContext must be used with ThemeContext');
-  }
-
-  return theme;
+  return useContextWrapper(
+    'useThemeContext must be used with ThemeContext',
+    ThemeContext
+  );
 }
 
 function ThemeProvider({ children }: PropsWithChildren) {
