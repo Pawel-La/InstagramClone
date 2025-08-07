@@ -19,6 +19,8 @@ import ThemedView from '../ThemedView';
 
 // todo simplify sidebar logic, as the component starts to grow a little too big
 
+// todo handle the case of selected ids being === []
+
 export default function SideBar() {
   return (
     <ThemedView style={styles.container}>
@@ -324,8 +326,8 @@ function MoreButton() {
 
   function onPress() {
     setIds([...ids, moreButton.id]);
-    // todo add opening of modal
-    // closing of modal should deselect this button
+    // todo add modal
+    // on modal close, deselect this button
   }
 
   return SideBarItem({
