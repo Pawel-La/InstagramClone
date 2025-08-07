@@ -30,7 +30,7 @@ type SideBarSelectedItemsContextProps =
 const SideBarSelectedItemsContext =
   createContext<SideBarSelectedItemsContextProps>(undefined);
 
-export function useSideBarSelectedItemsContext() {
+function useSideBarSelectedItemsContext() {
   const selectedItems = useContext(SideBarSelectedItemsContext);
 
   if (selectedItems === undefined) {
@@ -42,7 +42,7 @@ export function useSideBarSelectedItemsContext() {
   return selectedItems;
 }
 
-export function SideBarSelectedItemsProvider({ children }: PropsWithChildren) {
+function SideBarSelectedItemsProvider({ children }: PropsWithChildren) {
   const [ids, setIds] = useState<SideBarItemId[]>([sideBarDefaultItemId]);
 
   return (
@@ -51,3 +51,5 @@ export function SideBarSelectedItemsProvider({ children }: PropsWithChildren) {
     </SideBarSelectedItemsContext>
   );
 }
+
+export { SideBarSelectedItemsProvider, useSideBarSelectedItemsContext };

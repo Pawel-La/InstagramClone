@@ -21,7 +21,7 @@ type ThemeContextProps =
 
 const ThemeContext = createContext<ThemeContextProps>(undefined);
 
-export function useThemeContext() {
+function useThemeContext() {
   const theme = useContext(ThemeContext);
 
   if (theme === undefined) {
@@ -31,7 +31,7 @@ export function useThemeContext() {
   return theme;
 }
 
-export function ThemeProvider({ children }: PropsWithChildren) {
+function ThemeProvider({ children }: PropsWithChildren) {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -40,3 +40,5 @@ export function ThemeProvider({ children }: PropsWithChildren) {
     </ThemeContext>
   );
 }
+
+export { ThemeProvider, useThemeContext };
