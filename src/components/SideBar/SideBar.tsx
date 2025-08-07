@@ -59,6 +59,33 @@ function MainLogoButton() {
   );
 }
 
+function NavigationButtons() {
+  const { id: id, setId: setId } = useSelectedSideBarItemIdContext();
+  const router = useRouter();
+
+  return (
+    <>
+      {navItems.map((navItem) => {
+        const onPress = () => {
+          setId(navItem.id);
+          navItem.path && router.navigate(navItem.path);
+        };
+        const isSelected = id === navItem.id;
+
+        return (
+          <SideBarButton
+            key={navItem.id}
+            icon={isSelected ? navItem.selectedIcon : navItem.icon}
+            text={navItem.label}
+            onPress={onPress}
+            textStyle={isSelected ? styles.selectedButtonText : undefined}
+          />
+        );
+      })}
+    </>
+  );
+}
+
 type NavItem = {
   id: SideBarItemId;
   label: string;
@@ -156,33 +183,6 @@ function SelectedProfileIcon() {
     >
       <ProfileIcon />
     </OuterBorder>
-  );
-}
-
-function NavigationButtons() {
-  const { id: id, setId: setId } = useSelectedSideBarItemIdContext();
-  const router = useRouter();
-
-  return (
-    <>
-      {navItems.map((navItem) => {
-        const onPress = () => {
-          setId(navItem.id);
-          navItem.path && router.navigate(navItem.path);
-        };
-        const isSelected = id === navItem.id;
-
-        return (
-          <SideBarButton
-            key={navItem.id}
-            icon={isSelected ? navItem.selectedIcon : navItem.icon}
-            text={navItem.label}
-            onPress={onPress}
-            textStyle={isSelected ? styles.selectedButtonText : undefined}
-          />
-        );
-      })}
-    </>
   );
 }
 
