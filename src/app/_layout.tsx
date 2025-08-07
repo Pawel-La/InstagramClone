@@ -9,16 +9,17 @@ import { styles } from './styles';
 export default function RootLayout() {
   return (
     <ThemeProvider>
-      <SideBarSelectedItemsProvider>
-        <ThemedView style={styles.container}>
+      <ThemedView style={styles.container}>
+        <SideBarSelectedItemsProvider>
           <SideBar />
-          <Stack
-            screenOptions={{
-              headerShown: false,
-            }}
-          />
-        </ThemedView>
-      </SideBarSelectedItemsProvider>
+        </SideBarSelectedItemsProvider>
+
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+      </ThemedView>
     </ThemeProvider>
   );
 }
