@@ -6,8 +6,8 @@ import { Href, useRouter } from 'expo-router';
 
 import {
   SideBarItemId,
-  useSelectedSideBarItemIdContext,
-} from '@/src/context/SelectedSideBarItemIdContext';
+  useSideBarSelectedItemsContext,
+} from '@/src/context/SideBarSelectedItemsContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { BORDER_RADIUS } from '@/src/utils/theme';
 import CustomButton from '../CustomButton';
@@ -36,14 +36,14 @@ export default function SideBar() {
 
 function MainLogoButton() {
   const { theme: theme } = useThemeContext();
-  const { setId: setId } = useSelectedSideBarItemIdContext();
+  const { setIds: setIds } = useSideBarSelectedItemsContext();
   const router = useRouter();
 
   return (
     <ThemedView style={styles.mainLogoContainer}>
       <CustomButton
         onPress={() => {
-          setId(SideBarItemId.home);
+          setIds([SideBarItemId.home]);
           router.navigate('/');
         }}
         renderContent={({ isPressed }) => (
@@ -60,17 +60,17 @@ function MainLogoButton() {
 }
 
 function NavigationButtons() {
-  const { id: id, setId: setId } = useSelectedSideBarItemIdContext();
+  const { ids: ids, setIds: setIds } = useSideBarSelectedItemsContext();
   const router = useRouter();
 
   return (
     <>
       {navItems.map((navItem) => {
         const onPress = () => {
-          setId(navItem.id);
+          setIds([navItem.id]);
           navItem.path && router.navigate(navItem.path);
         };
-        const isSelected = id === navItem.id;
+        const isSelected = ids.includes(navItem.id);
 
         return (
           <SideBarButton
@@ -198,15 +198,15 @@ const moreButton: NavItem = {
 };
 
 function MoreButton() {
-  const { id: id, setId: setId } = useSelectedSideBarItemIdContext();
-  const isSelected = id === moreButton.id;
+  const { ids: ids, setIds: setIds } = useSideBarSelectedItemsContext();
+  const isSelected = ids.includes(moreButton.id);
 
   return (
     <SideBarButton
       icon={isSelected ? moreButton.selectedIcon : moreButton.icon}
       text={moreButton.label}
       onPress={() => {
-        setId(SideBarItemId.more);
+        setIds([SideBarItemId.more]);
       }}
       textStyle={isSelected ? styles.selectedButtonText : undefined}
     />

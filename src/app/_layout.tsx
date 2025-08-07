@@ -2,14 +2,14 @@ import { Stack } from 'expo-router';
 
 import SideBar from '../components/SideBar';
 import ThemedView from '../components/ThemedView';
-import { SelectedSideBarItemIdProvider } from '../context/SelectedSideBarItemIdContext';
+import { SideBarSelectedItemsProvider } from '../context/SideBarSelectedItemsContext';
 import { ThemeProvider } from '../context/ThemeContext';
 import { styles } from './styles';
 
 export default function RootLayout() {
   return (
     <ThemeProvider>
-      <SelectedSideBarItemIdProvider>
+      <SideBarSelectedItemsProvider>
         <ThemedView style={styles.container}>
           <SideBar />
           <Stack
@@ -18,7 +18,7 @@ export default function RootLayout() {
             }}
           />
         </ThemedView>
-      </SelectedSideBarItemIdProvider>
+      </SideBarSelectedItemsProvider>
     </ThemeProvider>
   );
 }
