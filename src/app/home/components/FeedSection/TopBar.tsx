@@ -2,8 +2,8 @@ import CustomButton from '@/src/components/CustomButton';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
-import { Variant } from '@/src/hooks/usePageVariant';
 import { PressableProps } from 'react-native';
+import { Variant } from './hooks/usePageVariant';
 import styles from './styles';
 
 type TopBarProps = {

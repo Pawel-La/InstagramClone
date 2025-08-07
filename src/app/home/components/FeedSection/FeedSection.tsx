@@ -1,8 +1,8 @@
-import ThemedText from "@/src/components/ThemedText";
-import ThemedView from "@/src/components/ThemedView";
-import usePageVariant from "@/src/hooks/usePageVariant";
-import styles from "./styles";
-import TopBar from "./TopBar";
+import ThemedText from '@/src/components/ThemedText';
+import ThemedView from '@/src/components/ThemedView';
+import usePageVariant from './hooks/usePageVariant';
+import styles from './styles';
+import TopBar from './TopBar';
 
 export default function FeedSection() {
   const { variant, showHome, showFollowing } = usePageVariant();
