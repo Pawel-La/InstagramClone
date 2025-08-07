@@ -3,9 +3,9 @@ import {
   Dispatch,
   PropsWithChildren,
   SetStateAction,
-  useContext,
   useState,
 } from 'react';
+import { useContextWrapper } from './helpers';
 
 export enum SideBarItemId {
   'home',
@@ -18,38 +18,46 @@ export enum SideBarItemId {
   'profile',
   'more',
 }
-const sideBarDefaultItemId = SideBarItemId.home;
 
-type SideBarSelectedItemsContextProps =
-  | {
-      ids: SideBarItemId[];
-      setIds: Dispatch<SetStateAction<SideBarItemId[]>>;
-    }
+type SideBarSelectedItemsContextStateProps = SideBarItemId[] | undefined;
+
+type useSideBarSelectedItemsContextUpdaterProps =
+  | Dispatch<SetStateAction<SideBarItemId[]>>
   | undefined;
 
-const SideBarSelectedItemsContext =
-  createContext<SideBarSelectedItemsContextProps>(undefined);
+const SideBarSelectedItemsContextState =
+  createContext<SideBarSelectedItemsContextStateProps>(undefined);
+const SideBarSelectedItemsContextUpdater =
+  createContext<useSideBarSelectedItemsContextUpdaterProps>(undefined);
 
-function useSideBarSelectedItemsContext() {
-  const selectedItems = useContext(SideBarSelectedItemsContext);
-
-  if (selectedItems === undefined) {
-    throw new Error(
-      'useSideBarSelectedItemsContext must be used with SideBarSelectedItemsContext'
-    );
-  }
-
-  return selectedItems;
-}
-
-function SideBarSelectedItemsProvider({ children }: PropsWithChildren) {
-  const [ids, setIds] = useState<SideBarItemId[]>([sideBarDefaultItemId]);
-
-  return (
-    <SideBarSelectedItemsContext value={{ ids: ids, setIds: setIds }}>
-      {children}
-    </SideBarSelectedItemsContext>
+function useSideBarSelectedItemsContextState() {
+  return useContextWrapper(
+    'useSideBarSelectedItemsContextState must be used within its provider',
+    SideBarSelectedItemsContextState
   );
 }
 
-export { SideBarSelectedItemsProvider, useSideBarSelectedItemsContext };
+function useSideBarSelectedItemsContextUpdater() {
+  return useContextWrapper(
+    'useSideBarSelectedItemsContextUpdater must be used within its provider',
+    SideBarSelectedItemsContextUpdater
+  );
+}
+
+function SideBarSelectedItemsProvider({ children }: PropsWithChildren) {
+  const [ids, setIds] = useState<SideBarItemId[]>([]);
+
+  return (
+    <SideBarSelectedItemsContextState value={ids}>
+      <SideBarSelectedItemsContextUpdater value={setIds}>
+        {children}
+      </SideBarSelectedItemsContextUpdater>
+    </SideBarSelectedItemsContextState>
+  );
+}
+
+export {
+  SideBarSelectedItemsProvider,
+  useSideBarSelectedItemsContextState,
+  useSideBarSelectedItemsContextUpdater,
+};

@@ -2,11 +2,12 @@ import React from 'react';
 import { Image } from 'react-native';
 import styles from './styles';
 
-import { Href, useRouter } from 'expo-router';
+import { Href, usePathname, useRouter } from 'expo-router';
 
 import {
   SideBarItemId,
-  useSideBarSelectedItemsContext,
+  useSideBarSelectedItemsContextState,
+  useSideBarSelectedItemsContextUpdater,
 } from '@/src/context/SideBarSelectedItemsContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { BORDER_RADIUS } from '@/src/utils/theme';
@@ -25,7 +26,14 @@ export default function SideBar() {
         <MainLogoButton />
 
         <ThemedView style={{ flex: 1 }}>
-          <NavigationButtons />
+          <HomeButton />
+          <SearchButton />
+          <ExploreButton />
+          <ReelsButton />
+          <MessagesButton />
+          <NotificationsButton />
+          <CreatePostButton />
+          <ProfileButton />
         </ThemedView>
 
         <MoreButton />
@@ -34,9 +42,11 @@ export default function SideBar() {
   );
 }
 
+const navItemSize = 24;
+
 function MainLogoButton() {
   const { theme: theme } = useThemeContext();
-  const { setIds: setIds } = useSideBarSelectedItemsContext();
+  const setIds = useSideBarSelectedItemsContextUpdater();
   const router = useRouter();
 
   return (
@@ -59,99 +69,213 @@ function MainLogoButton() {
   );
 }
 
-function NavigationButtons() {
-  const { ids: ids, setIds: setIds } = useSideBarSelectedItemsContext();
-  const router = useRouter();
-
-  return (
-    <>
-      {navItems.map((navItem) => {
-        const onPress = () => {
-          setIds([navItem.id]);
-          navItem.path && router.navigate(navItem.path);
-        };
-        const isSelected = ids.includes(navItem.id);
-
-        return (
-          <SideBarButton
-            key={navItem.id}
-            icon={isSelected ? navItem.selectedIcon : navItem.icon}
-            text={navItem.label}
-            onPress={onPress}
-            textStyle={isSelected ? styles.selectedButtonText : undefined}
-          />
-        );
-      })}
-    </>
-  );
-}
-
 type NavItem = {
   id: SideBarItemId;
   label: string;
   icon: React.ReactElement;
   selectedIcon: React.ReactElement;
-  path?: Href;
 };
 
-const navItemSize = 24;
+type NavItemWithPath = NavItem & {
+  path: Href;
+};
 
-const navItems: NavItem[] = [
-  {
+function HomeButton() {
+  const homeItem: NavItemWithPath = {
     id: SideBarItemId.home,
     label: 'Strona główna',
     icon: <ThemedCustomIcon name="home" size={navItemSize} />,
     selectedIcon: <ThemedCustomIcon name="home_filled" size={navItemSize} />,
     path: '/',
-  },
-  {
+  };
+
+  return <NavButton navItem={homeItem} />;
+}
+
+function SearchButton() {
+  const searchItem: NavItem = {
     id: SideBarItemId.search,
     label: 'Szukaj',
     icon: <ThemedCustomIcon name="search" size={navItemSize} strokeWidth={2} />,
     selectedIcon: (
       <ThemedCustomIcon name="search" size={navItemSize} strokeWidth={3} />
     ),
-  },
-  {
+  };
+
+  const ids = useSideBarSelectedItemsContextState();
+  const setIds = useSideBarSelectedItemsContextUpdater();
+
+  const isSelected = ids.includes(searchItem.id);
+
+  function onPress() {
+    function deselectButton() {
+      setIds(ids.filter((id) => id !== searchItem.id));
+    }
+
+    function onReelsOrMessagesPage() {
+      return (
+        ids.length === 1 &&
+        (ids[0] === SideBarItemId.reels || ids[0] === SideBarItemId.messages)
+      );
+    }
+
+    if (isSelected) {
+      deselectButton();
+      return;
+    }
+
+    if (onReelsOrMessagesPage()) {
+      setIds([...ids, searchItem.id]);
+    } else {
+      setIds([searchItem.id]);
+    }
+  }
+
+  return SideBarItem({
+    navItem: searchItem,
+    isSelected: isSelected,
+    onPress: onPress,
+  });
+}
+
+function ExploreButton() {
+  const exploreItem: NavItemWithPath = {
     id: SideBarItemId.explore,
     label: 'Eksploruj',
     icon: <ThemedCustomIcon name="explore_v1" size={navItemSize} />,
     selectedIcon: <ThemedCustomIcon name="explore_v2" size={navItemSize} />,
     path: '/explore',
-  },
-  {
+  };
+
+  return <NavButton navItem={exploreItem} />;
+}
+
+function ReelsButton() {
+  const reelsItem: NavItemWithPath = {
     id: SideBarItemId.reels,
     label: 'Rolki',
     icon: <ThemedCustomIcon name="reels_v1" size={navItemSize} />,
     selectedIcon: <ThemedCustomIcon name="reels_v2" size={navItemSize} />,
-  },
-  {
+    // todo change navigation to /reels/ instead
+    path: '/',
+  };
+
+  return <NavButton navItem={reelsItem} />;
+}
+
+function MessagesButton() {
+  const messagesItem: NavItemWithPath = {
     id: SideBarItemId.messages,
     label: 'Wiadomości',
     icon: <ThemedCustomIcon name="direction" size={navItemSize} />,
     selectedIcon: (
       <ThemedCustomIcon name="direction_filled" size={navItemSize} />
     ),
-  },
-  {
+    // todo change navigation to /direct/inbox/ instead
+    path: '/',
+  };
+
+  return <NavButton navItem={messagesItem} />;
+}
+
+function NavButton({ navItem }: { navItem: NavItemWithPath }) {
+  const ids = useSideBarSelectedItemsContextState();
+  const setIds = useSideBarSelectedItemsContextUpdater();
+  const router = useRouter();
+
+  const isSelected = ids.includes(navItem.id);
+
+  function onPress() {
+    setIds([navItem.id]);
+    router.navigate(navItem.path);
+  }
+
+  return SideBarItem({
+    navItem: navItem,
+    isSelected: isSelected,
+    onPress: onPress,
+  });
+}
+
+function NotificationsButton() {
+  const notificationsItem: NavItem = {
     id: SideBarItemId.notifications,
     label: 'Powiadomienia',
     icon: <ThemedCustomIcon name="heart_empty" size={navItemSize} />,
     selectedIcon: <ThemedCustomIcon name="heart_filled" size={navItemSize} />,
-  },
-  {
+  };
+
+  const ids = useSideBarSelectedItemsContextState();
+  const setIds = useSideBarSelectedItemsContextUpdater();
+
+  const isSelected = ids.includes(notificationsItem.id);
+
+  function onPress() {
+    function deselectButton() {
+      setIds(ids.filter((id) => id !== notificationsItem.id));
+    }
+
+    if (isSelected) {
+      deselectButton();
+      return;
+    }
+
+    setIds([notificationsItem.id]);
+  }
+
+  return SideBarItem({
+    navItem: notificationsItem,
+    isSelected: isSelected,
+    onPress: onPress,
+  });
+}
+
+function CreatePostButton() {
+  const createPostItem: Omit<NavItem, 'selectedIcon'> = {
     id: SideBarItemId.create,
     label: 'Utwórz',
     icon: <ThemedCustomIcon name="add-box" size={navItemSize} />,
-    selectedIcon: <ThemedCustomIcon name="add-box" size={navItemSize} />,
-  },
-  {
+  };
+
+  function onPress() {
+    // todo add opening of modal
+  }
+
+  return (
+    <SideBarButton
+      icon={createPostItem.icon}
+      text={createPostItem.label}
+      onPress={onPress}
+    />
+  );
+}
+
+function ProfileButton() {
+  const profileItem: NavItemWithPath = {
     id: SideBarItemId.profile,
     label: 'Profil',
     icon: <ProfileIcon />,
     selectedIcon: <SelectedProfileIcon />,
-  },
-];
+    // todo change navigation to /[username]/ instead
+    path: '/',
+  };
+
+  const setIds = useSideBarSelectedItemsContextUpdater();
+  const router = useRouter();
+  const pathname = usePathname();
+  const isSelected = pathname === profileItem.path;
+
+  function onPress() {
+    setIds([profileItem.id]);
+    router.navigate(profileItem.path);
+  }
+
+  return SideBarItem({
+    navItem: profileItem,
+    isSelected: isSelected,
+    onPress: onPress,
+  });
+}
 
 function ProfileIcon() {
   return (
@@ -186,28 +310,53 @@ function SelectedProfileIcon() {
   );
 }
 
-const moreButton: NavItem = {
-  id: SideBarItemId.more,
-  label: 'Więcej',
-  icon: (
-    <ThemedCustomIcon name="three-horizontal-lines" size={24} strokeWidth={2} />
-  ),
-  selectedIcon: (
-    <ThemedCustomIcon name="three-horizontal-lines" size={24} strokeWidth={3} />
-  ),
-};
-
 function MoreButton() {
-  const { ids: ids, setIds: setIds } = useSideBarSelectedItemsContext();
+  const moreButton: NavItem = {
+    id: SideBarItemId.more,
+    label: 'Więcej',
+    icon: <ThreeHorizontalLinesIcon strokeWidth={2} />,
+    selectedIcon: <ThreeHorizontalLinesIcon strokeWidth={3} />,
+  };
+
+  const ids = useSideBarSelectedItemsContextState();
+  const setIds = useSideBarSelectedItemsContextUpdater();
   const isSelected = ids.includes(moreButton.id);
 
+  function onPress() {
+    setIds([...ids, moreButton.id]);
+    // todo add opening of modal
+    // closing of modal should deselect this button
+  }
+
+  return SideBarItem({
+    navItem: moreButton,
+    isSelected: isSelected,
+    onPress: onPress,
+  });
+}
+
+function ThreeHorizontalLinesIcon({ strokeWidth }: { strokeWidth: number }) {
+  return (
+    <ThemedCustomIcon
+      name="three-horizontal-lines"
+      size={navItemSize}
+      strokeWidth={strokeWidth}
+    />
+  );
+}
+
+type sideBarItemProps = {
+  navItem: NavItem;
+  isSelected: boolean;
+  onPress: () => void;
+};
+
+function SideBarItem({ navItem, isSelected, onPress }: sideBarItemProps) {
   return (
     <SideBarButton
-      icon={isSelected ? moreButton.selectedIcon : moreButton.icon}
-      text={moreButton.label}
-      onPress={() => {
-        setIds([SideBarItemId.more]);
-      }}
+      icon={isSelected ? navItem.selectedIcon : navItem.icon}
+      text={navItem.label}
+      onPress={onPress}
       textStyle={isSelected ? styles.selectedButtonText : undefined}
     />
   );
