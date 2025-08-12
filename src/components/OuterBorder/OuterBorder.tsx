@@ -10,6 +10,9 @@ type OuterBorderProps = PropsWithChildren & {
   borderStyle?: StyleProp<ViewStyle>;
 };
 
+/**
+ * border that does not change the total size of content, due to position absolute usage
+ */
 export default function OuterBorder({
   contentWidth,
   contentHeight,
