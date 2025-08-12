@@ -5,6 +5,7 @@ import styles from './styles';
 import { Href, usePathname, useRouter } from 'expo-router';
 
 import {
+  SIDEBAR_ITEM_ID,
   SideBarItemId,
   useSideBarSelectedItemsContextState,
   useSideBarSelectedItemsContextUpdater,
@@ -55,7 +56,7 @@ function MainLogoButton() {
     <ThemedView style={styles.mainLogoContainer}>
       <CustomButton
         onPress={() => {
-          setIds([SideBarItemId.home]);
+          setIds([SIDEBAR_ITEM_ID.HOME]);
           router.navigate('/');
         }}
         renderContent={({ isPressed }) => (
@@ -84,7 +85,7 @@ type NavItemWithPath = NavItem & {
 
 function HomeButton() {
   const homeItem: NavItemWithPath = {
-    id: SideBarItemId.home,
+    id: SIDEBAR_ITEM_ID.HOME,
     label: 'Strona główna',
     icon: <ThemedCustomIcon name="home" size={navItemSize} />,
     selectedIcon: <ThemedCustomIcon name="home_filled" size={navItemSize} />,
@@ -96,7 +97,7 @@ function HomeButton() {
 
 function SearchButton() {
   const searchItem: NavItem = {
-    id: SideBarItemId.search,
+    id: SIDEBAR_ITEM_ID.SEARCH,
     label: 'Szukaj',
     icon: <ThemedCustomIcon name="search" size={navItemSize} strokeWidth={2} />,
     selectedIcon: (
@@ -117,7 +118,8 @@ function SearchButton() {
     function onReelsOrMessagesPage() {
       return (
         ids.length === 1 &&
-        (ids[0] === SideBarItemId.reels || ids[0] === SideBarItemId.messages)
+        (ids[0] === SIDEBAR_ITEM_ID.REELS ||
+          ids[0] === SIDEBAR_ITEM_ID.MESSAGES)
       );
     }
 
@@ -142,7 +144,7 @@ function SearchButton() {
 
 function ExploreButton() {
   const exploreItem: NavItemWithPath = {
-    id: SideBarItemId.explore,
+    id: SIDEBAR_ITEM_ID.EXPLORE,
     label: 'Eksploruj',
     icon: <ThemedCustomIcon name="explore_v1" size={navItemSize} />,
     selectedIcon: <ThemedCustomIcon name="explore_v2" size={navItemSize} />,
@@ -154,7 +156,7 @@ function ExploreButton() {
 
 function ReelsButton() {
   const reelsItem: NavItemWithPath = {
-    id: SideBarItemId.reels,
+    id: SIDEBAR_ITEM_ID.REELS,
     label: 'Rolki',
     icon: <ThemedCustomIcon name="reels_v1" size={navItemSize} />,
     selectedIcon: <ThemedCustomIcon name="reels_v2" size={navItemSize} />,
@@ -167,7 +169,7 @@ function ReelsButton() {
 
 function MessagesButton() {
   const messagesItem: NavItemWithPath = {
-    id: SideBarItemId.messages,
+    id: SIDEBAR_ITEM_ID.MESSAGES,
     label: 'Wiadomości',
     icon: <ThemedCustomIcon name="direction" size={navItemSize} />,
     selectedIcon: (
@@ -201,7 +203,7 @@ function NavButton({ navItem }: { navItem: NavItemWithPath }) {
 
 function NotificationsButton() {
   const notificationsItem: NavItem = {
-    id: SideBarItemId.notifications,
+    id: SIDEBAR_ITEM_ID.NOTIFICATIONS,
     label: 'Powiadomienia',
     icon: <ThemedCustomIcon name="heart_empty" size={navItemSize} />,
     selectedIcon: <ThemedCustomIcon name="heart_filled" size={navItemSize} />,
@@ -234,7 +236,7 @@ function NotificationsButton() {
 
 function CreatePostButton() {
   const createPostItem: Omit<NavItem, 'selectedIcon'> = {
-    id: SideBarItemId.create,
+    id: SIDEBAR_ITEM_ID.CREATE,
     label: 'Utwórz',
     icon: <ThemedCustomIcon name="add-box" size={navItemSize} />,
   };
@@ -254,7 +256,7 @@ function CreatePostButton() {
 
 function ProfileButton() {
   const profileItem: NavItemWithPath = {
-    id: SideBarItemId.profile,
+    id: SIDEBAR_ITEM_ID.PROFILE,
     label: 'Profil',
     icon: <ProfileIcon />,
     selectedIcon: <SelectedProfileIcon />,
@@ -314,7 +316,7 @@ function SelectedProfileIcon() {
 
 function MoreButton() {
   const moreButton: NavItem = {
-    id: SideBarItemId.more,
+    id: SIDEBAR_ITEM_ID.MORE,
     label: 'Więcej',
     icon: <ThreeHorizontalLinesIcon strokeWidth={2} />,
     selectedIcon: <ThreeHorizontalLinesIcon strokeWidth={3} />,

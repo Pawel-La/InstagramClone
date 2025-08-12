@@ -7,17 +7,19 @@ import {
 } from 'react';
 import { useContextWrapper } from './helpers';
 
-export enum SideBarItemId {
-  'home',
-  'search',
-  'explore',
-  'reels',
-  'messages',
-  'notifications',
-  'create',
-  'profile',
-  'more',
-}
+export const SIDEBAR_ITEM_ID = {
+  HOME: 'HOME',
+  SEARCH: 'SEARCH',
+  EXPLORE: 'EXPLORE',
+  REELS: 'REELS',
+  MESSAGES: 'MESSAGES',
+  NOTIFICATIONS: 'NOTIFICATIONS',
+  CREATE: 'CREATE',
+  PROFILE: 'PROFILE',
+  MORE: 'MORE',
+} as const;
+
+export type SideBarItemId = keyof typeof SIDEBAR_ITEM_ID;
 
 type SideBarSelectedItemsContextStateProps = SideBarItemId[] | undefined;
 

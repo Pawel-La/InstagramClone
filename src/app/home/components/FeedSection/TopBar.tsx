@@ -3,7 +3,7 @@ import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { PressableProps } from 'react-native';
-import { Variant } from './hooks/usePageVariant';
+import { Variant, VARIANT } from './hooks/usePageVariant';
 import styles from './styles';
 
 type TopBarProps = {
@@ -21,12 +21,12 @@ export default function TopBar({
     <ThemedView style={styles.topBar}>
       <TopBarButton
         text={'Dla Ciebie'}
-        selected={variant === Variant.home}
+        selected={variant === VARIANT.HOME}
         onPress={showHome}
       />
       <TopBarButton
         text={'Obserwowani'}
-        selected={variant === Variant.following}
+        selected={variant === VARIANT.FOLLOWING}
         onPress={showFollowing}
       />
     </ThemedView>
