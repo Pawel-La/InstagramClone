@@ -7,7 +7,7 @@ export const VARIANT = {
 
 export type Variant = keyof typeof VARIANT;
 
-export default function usePageVariant() {
+export function usePageVariant() {
   const [variant, setVariant] = useState<Variant>(VARIANT.HOME);
 
   function showHome() {

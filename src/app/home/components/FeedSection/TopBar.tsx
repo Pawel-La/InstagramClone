@@ -3,7 +3,7 @@ import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { PressableProps } from 'react-native';
-import { Variant, VARIANT } from './hooks/usePageVariant';
+import { Variant, VARIANT } from './FeedSection.hooks';
 import styles from './styles';
 
 type TopBarProps = {

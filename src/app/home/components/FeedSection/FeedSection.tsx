@@ -1,6 +1,6 @@
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
-import usePageVariant from './hooks/usePageVariant';
+import { usePageVariant } from './FeedSection.hooks';
 import styles from './styles';
 import TopBar from './TopBar';
 
