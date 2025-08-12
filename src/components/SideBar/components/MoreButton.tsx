@@ -1,6 +1,5 @@
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import {
-  SIDEBAR_ITEM_ID,
   useSidebarSelectedItemsStateContext,
   useSidebarSelectedItemsUpdaterContext,
 } from '@/src/context/SidebarSelectedItemsContext';
@@ -9,7 +8,7 @@ import { SidebarButton } from './SidebarButton';
 
 export function MoreButton({ size }: { size: number }) {
   const moreButton: SidebarItem = {
-    id: SIDEBAR_ITEM_ID.MORE,
+    id: 'MORE',
     label: 'Więcej',
     icon: <ThreeHorizontalLinesIcon strokeWidth={2} size={size} />,
     selectedIcon: <ThreeHorizontalLinesIcon strokeWidth={3} size={size} />,

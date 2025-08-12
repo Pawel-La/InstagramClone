@@ -1,7 +1,7 @@
 import { createContext, PropsWithChildren, useState } from 'react';
 import { useContextWrapper } from './helpers';
 
-export const SIDEBAR_ITEM_ID = {
+const SIDEBAR_ITEM_ID = {
   HOME: 'HOME',
   SEARCH: 'SEARCH',
   EXPLORE: 'EXPLORE',

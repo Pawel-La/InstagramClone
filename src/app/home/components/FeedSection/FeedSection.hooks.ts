@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const VARIANT = {
+const VARIANT = {
   HOME: 'HOME',
   FOLLOWING: 'FOLLOWING',
 } as const;
@@ -8,14 +8,14 @@ export const VARIANT = {
 export type Variant = keyof typeof VARIANT;
 
 export function usePageVariant() {
-  const [variant, setVariant] = useState<Variant>(VARIANT.HOME);
+  const [variant, setVariant] = useState<Variant>('HOME');
 
   function showHome() {
-    setVariant(VARIANT.HOME);
+    setVariant('HOME');
   }
 
   function showFollowing() {
-    setVariant(VARIANT.FOLLOWING);
+    setVariant('FOLLOWING');
   }
 
   return { variant, showHome, showFollowing };

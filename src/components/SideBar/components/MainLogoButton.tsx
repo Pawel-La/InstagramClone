@@ -5,10 +5,7 @@ import { useRouter } from 'expo-router';
 import CustomButton from '@/src/components/CustomButton';
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import ThemedView from '@/src/components/ThemedView';
-import {
-  SIDEBAR_ITEM_ID,
-  useSidebarSelectedItemsUpdaterContext,
-} from '@/src/context/SidebarSelectedItemsContext';
+import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SidebarSelectedItemsContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { SPACING } from '@/src/utils/theme';
 
@@ -44,7 +41,7 @@ function useMainLogoButton() {
   const router = useRouter();
 
   const onPress = () => {
-    setIds([SIDEBAR_ITEM_ID.HOME]);
+    setIds(['HOME']);
     router.navigate('/');
   };
 

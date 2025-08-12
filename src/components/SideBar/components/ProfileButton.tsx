@@ -3,10 +3,7 @@ import { Image } from 'react-native';
 import { usePathname, useRouter } from 'expo-router';
 
 import OuterBorder from '@/src/components/OuterBorder';
-import {
-  SIDEBAR_ITEM_ID,
-  useSidebarSelectedItemsUpdaterContext,
-} from '@/src/context/SidebarSelectedItemsContext';
+import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SidebarSelectedItemsContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { BORDER_RADIUS } from '@/src/utils/theme';
 import { SidebarNavItem } from '../Sidebar.types';
@@ -14,7 +11,7 @@ import { SidebarButton } from './SidebarButton';
 
 export function ProfileButton({ size }: { size: number }) {
   const profileItem: SidebarNavItem = {
-    id: SIDEBAR_ITEM_ID.PROFILE,
+    id: 'PROFILE',
     label: 'Profil',
     icon: <ProfileIcon size={size} />,
     selectedIcon: <SelectedProfileIcon size={size} />,

@@ -2,7 +2,6 @@ import React from 'react';
 
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import {
-  SIDEBAR_ITEM_ID,
   useSidebarSelectedItemsStateContext,
   useSidebarSelectedItemsUpdaterContext,
 } from '@/src/context/SidebarSelectedItemsContext';
@@ -11,7 +10,7 @@ import { SidebarButton } from './SidebarButton';
 
 export function NotificationsButton({ size }: { size: number }) {
   const notificationsItem: SidebarItem = {
-    id: SIDEBAR_ITEM_ID.NOTIFICATIONS,
+    id: 'NOTIFICATIONS',
     label: 'Powiadomienia',
     icon: <ThemedCustomIcon name="heart_empty" size={size} />,
     selectedIcon: <ThemedCustomIcon name="heart_filled" size={size} />,

@@ -2,7 +2,6 @@ import { useRouter } from 'expo-router';
 
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import {
-  SIDEBAR_ITEM_ID,
   useSidebarSelectedItemsStateContext,
   useSidebarSelectedItemsUpdaterContext,
 } from '@/src/context/SidebarSelectedItemsContext';
@@ -11,7 +10,7 @@ import { SidebarButton } from './SidebarButton';
 
 function HomeButton({ size }: { size: number }) {
   const homeItem: SidebarNavItem = {
-    id: SIDEBAR_ITEM_ID.HOME,
+    id: 'HOME',
     label: 'Strona główna',
     icon: <ThemedCustomIcon name="home" size={size} />,
     selectedIcon: <ThemedCustomIcon name="home_filled" size={size} />,
@@ -23,7 +22,7 @@ function HomeButton({ size }: { size: number }) {
 
 function ExploreButton({ size }: { size: number }) {
   const exploreItem: SidebarNavItem = {
-    id: SIDEBAR_ITEM_ID.EXPLORE,
+    id: 'EXPLORE',
     label: 'Eksploruj',
     icon: <ThemedCustomIcon name="explore_v1" size={size} />,
     selectedIcon: <ThemedCustomIcon name="explore_v2" size={size} />,
@@ -35,7 +34,7 @@ function ExploreButton({ size }: { size: number }) {
 
 function ReelsButton({ size }: { size: number }) {
   const reelsItem: SidebarNavItem = {
-    id: SIDEBAR_ITEM_ID.REELS,
+    id: 'REELS',
     label: 'Rolki',
     icon: <ThemedCustomIcon name="reels_v1" size={size} />,
     selectedIcon: <ThemedCustomIcon name="reels_v2" size={size} />,
@@ -48,7 +47,7 @@ function ReelsButton({ size }: { size: number }) {
 
 function MessagesButton({ size }: { size: number }) {
   const messagesItem: SidebarNavItem = {
-    id: SIDEBAR_ITEM_ID.MESSAGES,
+    id: 'MESSAGES',
     label: 'Wiadomości',
     icon: <ThemedCustomIcon name="direction" size={size} />,
     selectedIcon: <ThemedCustomIcon name="direction_filled" size={size} />,

@@ -1,6 +1,5 @@
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import {
-  SIDEBAR_ITEM_ID,
   useSidebarSelectedItemsStateContext,
   useSidebarSelectedItemsUpdaterContext,
 } from '@/src/context/SidebarSelectedItemsContext';
@@ -9,7 +8,7 @@ import { SidebarButton } from './SidebarButton';
 
 export function SearchButton({ size }: { size: number }) {
   const searchItem: SidebarItem = {
-    id: SIDEBAR_ITEM_ID.SEARCH,
+    id: 'SEARCH',
     label: 'Szukaj',
     icon: <ThemedCustomIcon name="search" size={size} strokeWidth={2} />,
     selectedIcon: (
@@ -38,11 +37,7 @@ function useSearchButton(searchItem: SidebarItem) {
     }
 
     function onReelsOrMessagesPage() {
-      return (
-        ids.length === 1 &&
-        (ids[0] === SIDEBAR_ITEM_ID.REELS ||
-          ids[0] === SIDEBAR_ITEM_ID.MESSAGES)
-      );
+      return ids.length === 1 && (ids[0] === 'REELS' || ids[0] === 'MESSAGES');
     }
 
     if (isSelected) {
