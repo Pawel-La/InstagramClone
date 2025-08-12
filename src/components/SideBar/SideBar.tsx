@@ -6,15 +6,15 @@ import { Href, usePathname, useRouter } from 'expo-router';
 
 import {
   SIDEBAR_ITEM_ID,
-  SideBarItemId,
-  useSideBarSelectedItemsContextState,
-  useSideBarSelectedItemsContextUpdater,
-} from '@/src/context/SideBarSelectedItemsContext';
+  SidebarItemId,
+  useSidebarSelectedItemsContextState,
+  useSidebarSelectedItemsContextUpdater,
+} from '@/src/context/SidebarSelectedItemsContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { BORDER_RADIUS } from '@/src/utils/theme';
 import CustomButton from '../CustomButton';
 import OuterBorder from '../OuterBorder';
-import SideBarButton from '../SideBarButton';
+import SidebarButton from '../SidebarButton';
 import ThemedCustomIcon from '../ThemedCustomIcon';
 import ThemedView from '../ThemedView';
 
@@ -22,7 +22,7 @@ import ThemedView from '../ThemedView';
 
 // todo handle the case of selected ids being === []
 
-export default function SideBar() {
+export default function Sidebar() {
   return (
     <ThemedView style={styles.container}>
       <ThemedView style={{ flex: 1 }}>
@@ -49,7 +49,7 @@ const navItemSize = 24;
 
 function MainLogoButton() {
   const { theme: theme } = useThemeContext();
-  const setIds = useSideBarSelectedItemsContextUpdater();
+  const setIds = useSidebarSelectedItemsContextUpdater();
   const router = useRouter();
 
   return (
@@ -73,7 +73,7 @@ function MainLogoButton() {
 }
 
 type NavItem = {
-  id: SideBarItemId;
+  id: SidebarItemId;
   label: string;
   icon: React.ReactElement;
   selectedIcon: React.ReactElement;
@@ -105,8 +105,8 @@ function SearchButton() {
     ),
   };
 
-  const ids = useSideBarSelectedItemsContextState();
-  const setIds = useSideBarSelectedItemsContextUpdater();
+  const ids = useSidebarSelectedItemsContextState();
+  const setIds = useSidebarSelectedItemsContextUpdater();
 
   const isSelected = ids.includes(searchItem.id);
 
@@ -135,7 +135,7 @@ function SearchButton() {
     }
   }
 
-  return SideBarItem({
+  return SidebarItem({
     navItem: searchItem,
     isSelected: isSelected,
     onPress: onPress,
@@ -183,8 +183,8 @@ function MessagesButton() {
 }
 
 function NavButton({ navItem }: { navItem: NavItemWithPath }) {
-  const ids = useSideBarSelectedItemsContextState();
-  const setIds = useSideBarSelectedItemsContextUpdater();
+  const ids = useSidebarSelectedItemsContextState();
+  const setIds = useSidebarSelectedItemsContextUpdater();
   const router = useRouter();
 
   const isSelected = ids.includes(navItem.id);
@@ -194,7 +194,7 @@ function NavButton({ navItem }: { navItem: NavItemWithPath }) {
     router.navigate(navItem.path);
   }
 
-  return SideBarItem({
+  return SidebarItem({
     navItem: navItem,
     isSelected: isSelected,
     onPress: onPress,
@@ -209,8 +209,8 @@ function NotificationsButton() {
     selectedIcon: <ThemedCustomIcon name="heart_filled" size={navItemSize} />,
   };
 
-  const ids = useSideBarSelectedItemsContextState();
-  const setIds = useSideBarSelectedItemsContextUpdater();
+  const ids = useSidebarSelectedItemsContextState();
+  const setIds = useSidebarSelectedItemsContextUpdater();
 
   const isSelected = ids.includes(notificationsItem.id);
 
@@ -227,7 +227,7 @@ function NotificationsButton() {
     setIds([notificationsItem.id]);
   }
 
-  return SideBarItem({
+  return SidebarItem({
     navItem: notificationsItem,
     isSelected: isSelected,
     onPress: onPress,
@@ -246,7 +246,7 @@ function CreatePostButton() {
   }
 
   return (
-    <SideBarButton
+    <SidebarButton
       icon={createPostItem.icon}
       text={createPostItem.label}
       onPress={onPress}
@@ -264,7 +264,7 @@ function ProfileButton() {
     path: '/',
   };
 
-  const setIds = useSideBarSelectedItemsContextUpdater();
+  const setIds = useSidebarSelectedItemsContextUpdater();
   const router = useRouter();
   const pathname = usePathname();
   const isSelected = pathname === profileItem.path;
@@ -274,7 +274,7 @@ function ProfileButton() {
     router.navigate(profileItem.path);
   }
 
-  return SideBarItem({
+  return SidebarItem({
     navItem: profileItem,
     isSelected: isSelected,
     onPress: onPress,
@@ -322,8 +322,8 @@ function MoreButton() {
     selectedIcon: <ThreeHorizontalLinesIcon strokeWidth={3} />,
   };
 
-  const ids = useSideBarSelectedItemsContextState();
-  const setIds = useSideBarSelectedItemsContextUpdater();
+  const ids = useSidebarSelectedItemsContextState();
+  const setIds = useSidebarSelectedItemsContextUpdater();
   const isSelected = ids.includes(moreButton.id);
 
   function onPress() {
@@ -332,7 +332,7 @@ function MoreButton() {
     // on modal close, deselect this button
   }
 
-  return SideBarItem({
+  return SidebarItem({
     navItem: moreButton,
     isSelected: isSelected,
     onPress: onPress,
@@ -355,9 +355,9 @@ type sideBarItemProps = {
   onPress: () => void;
 };
 
-function SideBarItem({ navItem, isSelected, onPress }: sideBarItemProps) {
+function SidebarItem({ navItem, isSelected, onPress }: sideBarItemProps) {
   return (
-    <SideBarButton
+    <SidebarButton
       icon={isSelected ? navItem.selectedIcon : navItem.icon}
       text={navItem.label}
       onPress={onPress}

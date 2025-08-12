@@ -11,7 +11,7 @@ import CustomButton from '../CustomButton';
 import ThemedText from '../ThemedText';
 import styles from './styles';
 
-type SideBarButtonProps = {
+type SidebarButtonProps = {
   icon: React.ReactElement;
   text: string;
   onPress?: PressableProps['onPress'];
@@ -19,13 +19,13 @@ type SideBarButtonProps = {
   textStyle?: StyleProp<TextStyle>;
 };
 
-export function SideBarButton({
+export function SidebarButton({
   icon,
   text,
   onPress,
   containerStyle,
   textStyle,
-}: SideBarButtonProps) {
+}: SidebarButtonProps) {
   const { theme: theme } = useThemeContext();
 
   return (
