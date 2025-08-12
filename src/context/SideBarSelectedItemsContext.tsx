@@ -18,24 +18,22 @@ export type SidebarItemId = keyof typeof SIDEBAR_ITEM_ID;
 type stateProps = SidebarItemId[] | undefined;
 
 const SidebarSelectedItemsContextState = createContext<stateProps>(undefined);
+SidebarSelectedItemsContextState.displayName =
+  'SidebarSelectedItemsContextState';
 
 function useSidebarSelectedItemsContextState() {
-  return useContextWrapper(
-    'useSidebarSelectedItemsContextState must be used within its provider',
-    SidebarSelectedItemsContextState
-  );
+  return useContextWrapper(SidebarSelectedItemsContextState);
 }
 
 type updaterProps = ((key: SidebarItemId[]) => void) | undefined;
 
 const SidebarSelectedItemsContextUpdater =
   createContext<updaterProps>(undefined);
+SidebarSelectedItemsContextUpdater.displayName =
+  'SidebarSelectedItemsContextUpdater';
 
 function useSidebarSelectedItemsContextUpdater() {
-  return useContextWrapper(
-    'useSidebarSelectedItemsContextUpdater must be used within its provider',
-    SidebarSelectedItemsContextUpdater
-  );
+  return useContextWrapper(SidebarSelectedItemsContextUpdater);
 }
 
 function SidebarSelectedItemsProvider({ children }: PropsWithChildren) {

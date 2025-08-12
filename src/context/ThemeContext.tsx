@@ -21,12 +21,10 @@ type ThemeContextProps =
   | undefined;
 
 const ThemeContext = createContext<ThemeContextProps>(undefined);
+ThemeContext.displayName = 'ThemeContext';
 
 function useThemeContext() {
-  return useContextWrapper(
-    'useThemeContext must be used with ThemeContext',
-    ThemeContext
-  );
+  return useContextWrapper(ThemeContext);
 }
 
 function ThemeProvider({ children }: PropsWithChildren) {
