@@ -17,39 +17,39 @@ export type SidebarItemId = keyof typeof SIDEBAR_ITEM_ID;
 
 type stateProps = SidebarItemId[] | undefined;
 
-const SidebarSelectedItemsContextState = createContext<stateProps>(undefined);
-SidebarSelectedItemsContextState.displayName =
-  'SidebarSelectedItemsContextState';
+const SidebarSelectedItemsStateContext = createContext<stateProps>(undefined);
+SidebarSelectedItemsStateContext.displayName =
+  'SidebarSelectedItemsStateContext';
 
-function useSidebarSelectedItemsContextState() {
-  return useContextWrapper(SidebarSelectedItemsContextState);
+function useSidebarSelectedItemsStateContext() {
+  return useContextWrapper(SidebarSelectedItemsStateContext);
 }
 
 type updaterProps = ((key: SidebarItemId[]) => void) | undefined;
 
-const SidebarSelectedItemsContextUpdater =
+const SidebarSelectedItemsUpdaterContext =
   createContext<updaterProps>(undefined);
-SidebarSelectedItemsContextUpdater.displayName =
-  'SidebarSelectedItemsContextUpdater';
+SidebarSelectedItemsUpdaterContext.displayName =
+  'SidebarSelectedItemsUpdaterContext';
 
-function useSidebarSelectedItemsContextUpdater() {
-  return useContextWrapper(SidebarSelectedItemsContextUpdater);
+function useSidebarSelectedItemsUpdaterContext() {
+  return useContextWrapper(SidebarSelectedItemsUpdaterContext);
 }
 
 function SidebarSelectedItemsProvider({ children }: PropsWithChildren) {
   const [ids, setIds] = useState<SidebarItemId[]>([]);
 
   return (
-    <SidebarSelectedItemsContextState value={ids}>
-      <SidebarSelectedItemsContextUpdater value={setIds}>
+    <SidebarSelectedItemsStateContext value={ids}>
+      <SidebarSelectedItemsUpdaterContext value={setIds}>
         {children}
-      </SidebarSelectedItemsContextUpdater>
-    </SidebarSelectedItemsContextState>
+      </SidebarSelectedItemsUpdaterContext>
+    </SidebarSelectedItemsStateContext>
   );
 }
 
 export {
   SidebarSelectedItemsProvider,
-  useSidebarSelectedItemsContextState,
-  useSidebarSelectedItemsContextUpdater,
+  useSidebarSelectedItemsStateContext,
+  useSidebarSelectedItemsUpdaterContext,
 };
