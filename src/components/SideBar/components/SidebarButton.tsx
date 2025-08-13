@@ -1,15 +1,15 @@
 import {
+  Pressable,
   PressableProps,
   StyleProp,
   StyleSheet,
   TextStyle,
   View,
-  ViewStyle,
 } from 'react-native';
 
-import CustomButton from '@/src/components/CustomButton';
 import ThemedText from '@/src/components/ThemedText';
 import { useThemeContext } from '@/src/context/ThemeContext';
+import useHover from '@/src/hooks/useHover';
 import {
   BORDER_RADIUS,
   FONT_SIZE,
@@ -44,7 +44,6 @@ type SidebarButtonStyledProps = {
   icon: React.ReactElement;
   text: string;
   onPress?: PressableProps['onPress'];
-  containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
 };
 
@@ -52,15 +51,14 @@ function SidebarButtonStyled({
   icon,
   text,
   onPress,
-  containerStyle,
   textStyle,
 }: SidebarButtonStyledProps) {
   const { theme: theme } = useThemeContext();
+  const { isHovered, ref } = useHover();
 
   return (
-    <CustomButton
-      onPress={onPress}
-      renderContent={({ isPressed, isHovered }) => (
+    <Pressable onPress={onPress}>
+      {({ pressed }) => (
         <View
           style={[
             styles.container,
@@ -68,16 +66,16 @@ function SidebarButtonStyled({
               backgroundColor: isHovered
                 ? theme.background_hovered
                 : theme.background,
-              transform: [{ scale: isPressed ? 0.96 : 1 }],
+              transform: [{ scale: pressed ? 0.96 : 1 }],
             },
-            containerStyle,
           ]}
+          ref={ref}
         >
           {icon}
           <ThemedText style={[styles.text, textStyle]}>{text}</ThemedText>
         </View>
       )}
-    />
+    </Pressable>
   );
 }
 

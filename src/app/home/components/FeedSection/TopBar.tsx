@@ -1,8 +1,7 @@
-import CustomButton from '@/src/components/CustomButton';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
-import { PressableProps } from 'react-native';
+import { Pressable, PressableProps } from 'react-native';
 import { Variant } from './FeedSection.hooks';
 import styles from './styles';
 
@@ -44,13 +43,10 @@ function TopBarButton({ text, selected, onPress }: TopBarButtonProps) {
   const color = selected ? theme.primary : theme.secondary;
 
   return (
-    <CustomButton
-      onPress={onPress}
-      renderContent={() => (
-        <ThemedText style={[styles.topBarText, { color: color }]}>
-          {text}
-        </ThemedText>
-      )}
-    />
+    <Pressable onPress={onPress}>
+      <ThemedText style={[styles.topBarText, { color: color }]}>
+        {text}
+      </ThemedText>
+    </Pressable>
   );
 }

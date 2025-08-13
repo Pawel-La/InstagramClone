@@ -1,8 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 
 import { useRouter } from 'expo-router';
 
-import CustomButton from '@/src/components/CustomButton';
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import ThemedView from '@/src/components/ThemedView';
 import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SidebarSelectedItemsContext';
@@ -21,17 +20,16 @@ export function MainLogoButton({
 
   return (
     <ThemedView style={styles.container}>
-      <CustomButton
-        onPress={onPress}
-        renderContent={({ isPressed }) => (
+      <Pressable onPress={onPress}>
+        {({ pressed }) => (
           <ThemedCustomIcon
             name="instagram-written"
             width={width}
             height={height}
-            primaryColor={isPressed ? theme.secondary : theme.primary}
+            primaryColor={pressed ? theme.secondary : theme.primary}
           />
         )}
-      />
+      </Pressable>
     </ThemedView>
   );
 }
