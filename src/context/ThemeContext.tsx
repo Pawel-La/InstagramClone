@@ -2,7 +2,7 @@ import { createContext, PropsWithChildren } from 'react';
 import useTheme from '../hooks/useTheme';
 import { useContextWrapper } from './helpers';
 
-type ThemeProps = {
+export type ThemeProps = {
   text: string;
   background: string;
   background_hovered: string;

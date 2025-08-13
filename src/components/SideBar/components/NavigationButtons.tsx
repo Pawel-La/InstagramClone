@@ -6,7 +6,7 @@ import {
   useSidebarSelectedItemsUpdaterContext,
 } from '@/src/context/SidebarSelectedItemsContext';
 import { SidebarNavItem } from '../Sidebar.types';
-import { SidebarButton } from './SidebarButton';
+import { SidebarItemButton } from './SidebarItemButton';
 
 function HomeButton({ size }: { size: number }) {
   const homeItem: SidebarNavItem = {
@@ -61,7 +61,7 @@ function MessagesButton({ size }: { size: number }) {
 function NavButton({ item }: { item: SidebarNavItem }) {
   const { isSelected, onPress } = useNavButton(item);
 
-  return SidebarButton({
+  return SidebarItemButton({
     sidebarItem: item,
     isSelected: isSelected,
     onPress: onPress,

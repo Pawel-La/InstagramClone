@@ -1,6 +1,6 @@
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import { SidebarItem } from '../Sidebar.types';
-import { SidebarButton } from './SidebarButton';
+import { SidebarItemButton } from './SidebarItemButton';
 
 export function CreatePostButton({ size }: { size: number }) {
   const createPostItem: SidebarItem = {
@@ -15,7 +15,7 @@ export function CreatePostButton({ size }: { size: number }) {
   }
 
   return (
-    <SidebarButton
+    <SidebarItemButton
       sidebarItem={createPostItem}
       isSelected={false}
       onPress={onPress}

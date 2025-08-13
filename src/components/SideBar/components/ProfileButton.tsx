@@ -7,7 +7,7 @@ import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SidebarSele
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { BORDER_RADIUS } from '@/src/utils/theme';
 import { SidebarNavItem } from '../Sidebar.types';
-import { SidebarButton } from './SidebarButton';
+import { SidebarItemButton } from './SidebarItemButton';
 
 export function ProfileButton({ size }: { size: number }) {
   const profileItem: SidebarNavItem = {
@@ -21,7 +21,7 @@ export function ProfileButton({ size }: { size: number }) {
 
   const { isSelected, onPress } = useProfileButton(profileItem);
 
-  return SidebarButton({
+  return SidebarItemButton({
     sidebarItem: profileItem,
     isSelected: isSelected,
     onPress: onPress,

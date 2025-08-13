@@ -4,7 +4,7 @@ import {
   useSidebarSelectedItemsUpdaterContext,
 } from '@/src/context/SidebarSelectedItemsContext';
 import { SidebarItem } from '../Sidebar.types';
-import { SidebarButton } from './SidebarButton';
+import { SidebarItemButton } from './SidebarItemButton';
 
 export function SearchButton({ size }: { size: number }) {
   const searchItem: SidebarItem = {
@@ -18,7 +18,7 @@ export function SearchButton({ size }: { size: number }) {
 
   const { isSelected, onPress } = useSearchButton(searchItem);
 
-  return SidebarButton({
+  return SidebarItemButton({
     sidebarItem: searchItem,
     isSelected: isSelected,
     onPress: onPress,

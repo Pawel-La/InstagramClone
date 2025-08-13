@@ -6,7 +6,7 @@ import {
   useSidebarSelectedItemsUpdaterContext,
 } from '@/src/context/SidebarSelectedItemsContext';
 import { SidebarItem } from '../Sidebar.types';
-import { SidebarButton } from './SidebarButton';
+import { SidebarItemButton } from './SidebarItemButton';
 
 export function NotificationsButton({ size }: { size: number }) {
   const notificationsItem: SidebarItem = {
@@ -18,7 +18,7 @@ export function NotificationsButton({ size }: { size: number }) {
 
   const { isSelected, onPress } = useNotificationsButton(notificationsItem);
 
-  return SidebarButton({
+  return SidebarItemButton({
     sidebarItem: notificationsItem,
     isSelected: isSelected,
     onPress: onPress,
