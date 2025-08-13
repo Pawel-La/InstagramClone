@@ -23,10 +23,6 @@ const styles = StyleSheet.create({
     lineHeight: LINE_HEIGHT.md,
     fontWeight: FONT_WEIGHT.bold,
   },
-  storiesBar: {
-    padding: SPACING.xs,
-    backgroundColor: 'yellow',
-  },
   feedSection: {
     width: 470,
     backgroundColor: 'purple',
