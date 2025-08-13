@@ -60,8 +60,8 @@ export const BORDER_RADIUS = {
 export const BORDER_SIZE = {
   sm: 1,
   md: 2,
-  lg: 4,
-  xl: 8,
+  lg: 3,
+  xl: 4,
 };
 
 export const LINE_HEIGHT = {
