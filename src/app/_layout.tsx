@@ -1,3 +1,5 @@
+import { StrictMode } from 'react';
+
 import { Stack } from 'expo-router';
 
 import Sidebar from '../components/Sidebar';
@@ -7,15 +9,17 @@ import { styles } from './styles';
 
 export default function RootLayout() {
   return (
-    <ThemeProvider>
-      <ThemedView style={styles.container}>
-        <Sidebar />
-        <Stack
-          screenOptions={{
-            headerShown: false,
-          }}
-        />
-      </ThemedView>
-    </ThemeProvider>
+    <StrictMode>
+      <ThemeProvider>
+        <ThemedView style={styles.container}>
+          <Sidebar />
+          <Stack
+            screenOptions={{
+              headerShown: false,
+            }}
+          />
+        </ThemedView>
+      </ThemeProvider>
+    </StrictMode>
   );
 }
