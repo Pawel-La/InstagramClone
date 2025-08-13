@@ -3,12 +3,12 @@ import { StyleProp, ViewStyle } from 'react-native';
 import ThemedView from '../ThemedView';
 import getStyles from './styles';
 
-type OuterBorderProps = PropsWithChildren & {
+interface OuterBorderProps extends PropsWithChildren {
   contentWidth: number;
   contentHeight: number;
   borderWidth: number;
   borderStyle?: StyleProp<ViewStyle>;
-};
+}
 
 /**
  * border that does not change the total size of content, due to position absolute usage

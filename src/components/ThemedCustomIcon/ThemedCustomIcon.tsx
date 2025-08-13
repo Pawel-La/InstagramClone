@@ -30,12 +30,12 @@ type CustomIconNameProps =
   | 'three-horizontal-lines'
   | 'instagram-written';
 
-type ThemedCustomIconProps = SvgProps & {
+interface ThemedCustomIconProps extends SvgProps {
   name: CustomIconNameProps;
   size?: number;
   primaryColor?: string;
   secondaryColor?: string;
-};
+}
 
 export default function ThemedCustomIcon({
   name,

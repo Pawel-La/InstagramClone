@@ -8,6 +8,6 @@ export type SidebarItem = {
   selectedIcon: React.ReactElement;
 };
 
-export type SidebarNavItem = SidebarItem & {
+export interface SidebarNavItem extends SidebarItem {
   path: Href;
-};
+}
