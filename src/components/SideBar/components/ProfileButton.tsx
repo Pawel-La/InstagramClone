@@ -1,19 +1,20 @@
-import { Image } from 'react-native';
-
 import { usePathname, useRouter } from 'expo-router';
 
 import OuterBorder from '@/src/components/OuterBorder';
+import ProfileIcon from '@/src/components/ProfileIcon';
 import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SidebarSelectedItemsContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { BORDER_RADIUS } from '@/src/utils/theme';
 import { SidebarNavItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
+const defaultUserImage = require('@/src/assets/images/user_image.jpg');
+
 export function ProfileButton({ size }: { size: number }) {
   const profileItem: SidebarNavItem = {
     id: 'PROFILE',
     label: 'Profil',
-    icon: <ProfileIcon size={size} />,
+    icon: <ProfileIcon size={size} source={defaultUserImage} />,
     selectedIcon: <SelectedProfileIcon size={size} />,
     // todo change navigation to /[username]/ instead
     path: '/',
@@ -58,22 +59,7 @@ function SelectedProfileIcon({ size }: { size: number }) {
       borderWidth={2}
       borderStyle={borderStyle}
     >
-      <ProfileIcon size={size} />
+      <ProfileIcon size={size} source={defaultUserImage} />
     </OuterBorder>
-  );
-}
-
-function ProfileIcon({ size }: { size: number }) {
-  const style = {
-    width: size,
-    height: size,
-    borderRadius: BORDER_RADIUS.round,
-  };
-
-  return (
-    <Image
-      style={style}
-      source={require('@/src/assets/images/user_image.jpg')}
-    />
   );
 }
