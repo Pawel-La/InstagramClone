@@ -7,6 +7,7 @@ import ExploreV2Icon from '@/src/assets/images/explore_v2.svg';
 import HeartEmptyIcon from '@/src/assets/images/heart_empty.svg';
 import HeartFilledIcon from '@/src/assets/images/heart_filled.svg';
 import HomeIcon from '@/src/assets/images/home.svg';
+import InstagramIcon from '@/src/assets/images/instagram-logo.svg';
 import InstagramWrittenIcon from '@/src/assets/images/instagram-written-logo.svg';
 import ReelsV1Icon from '@/src/assets/images/reels_v1.svg';
 import ReelsV2Icon from '@/src/assets/images/reels_v2.svg';
@@ -28,7 +29,8 @@ type CustomIconNameProps =
   | 'heart_filled'
   | 'add-box'
   | 'three-horizontal-lines'
-  | 'instagram-written';
+  | 'instagram-written'
+  | 'instagram-icon';
 
 interface ThemedCustomIconProps extends SvgProps {
   name: CustomIconNameProps;
@@ -187,6 +189,9 @@ export default function ThemedCustomIcon({
     }
     case 'instagram-written': {
       return <InstagramWrittenIcon color={primary} {...props} />;
+    }
+    case 'instagram-icon': {
+      return <InstagramIcon fill={primary} {...props} />;
     }
   }
 }
