@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import ThemedText from '@/src/components/ThemedText';
+import { useSidebarVersionContext } from '@/src/context/SidebarVersionContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import useHover from '@/src/hooks/useHover';
 import {
@@ -25,6 +26,7 @@ export function SidebarItemButton({
 }: SidebarItemButtonProps) {
   const { theme: theme } = useThemeContext();
   const { isHovered, ref } = useHover();
+  const isLargeSidebarVersion = useSidebarVersionContext() === 'LG';
 
   return (
     <Pressable onPress={onPress} ref={ref}>
@@ -42,12 +44,29 @@ export function SidebarItemButton({
         >
           {isSelected ? sidebarItem.selectedIcon : sidebarItem.icon}
 
-          <ThemedText style={[styles.text, isSelected && styles.selectedText]}>
-            {sidebarItem.label}
-          </ThemedText>
+          {isLargeSidebarVersion && (
+            <SidebarItemButtonText
+              text={sidebarItem.label}
+              isSelected={isSelected}
+            />
+          )}
         </View>
       )}
     </Pressable>
+  );
+}
+
+function SidebarItemButtonText({
+  text,
+  isSelected,
+}: {
+  text: string;
+  isSelected: boolean;
+}) {
+  return (
+    <ThemedText style={[styles.text, isSelected && styles.selectedText]}>
+      {text}
+    </ThemedText>
   );
 }
 
