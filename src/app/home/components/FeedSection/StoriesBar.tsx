@@ -1,10 +1,5 @@
 import { PropsWithChildren } from 'react';
-import {
-  ImageSourcePropType,
-  Pressable,
-  StyleSheet,
-  ViewStyle,
-} from 'react-native';
+import { Pressable, StyleSheet, ViewStyle } from 'react-native';
 
 import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
@@ -12,6 +7,7 @@ import ProfileIcon from '@/src/components/ProfileIcon';
 import ThemedScrollView from '@/src/components/ThemedScrollView';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
+import { getRandomUsers, User } from '@/src/types/User';
 import {
   BORDER_RADIUS,
   BORDER_SIZE,
@@ -23,29 +19,7 @@ const defaultUserImage = require('@/src/assets/images/user_image.jpg');
 
 const profileIconSize = 74;
 
-type User = {
-  id: string;
-  name: string;
-  icon: ImageSourcePropType;
-};
-
-const users: User[] = [
-  { id: '1', name: 'user1user1111', icon: defaultUserImage },
-  { id: '2', name: 'user2user2111', icon: defaultUserImage },
-  { id: '3', name: 'user3user3111', icon: defaultUserImage },
-  { id: '4', name: 'user4user4111', icon: defaultUserImage },
-  { id: '5', name: 'user5user5111', icon: defaultUserImage },
-  { id: '6', name: 'user6user6111', icon: defaultUserImage },
-  { id: '7', name: 'user7user7111', icon: defaultUserImage },
-  { id: '8', name: 'user8user8111', icon: defaultUserImage },
-  { id: '9', name: 'user9user9111', icon: defaultUserImage },
-  { id: '10', name: 'user4user4111', icon: defaultUserImage },
-  { id: '11', name: 'user5user5111', icon: defaultUserImage },
-  { id: '12', name: 'user6user6111', icon: defaultUserImage },
-  { id: '13', name: 'user7user7111', icon: defaultUserImage },
-  { id: '14', name: 'user8user8111', icon: defaultUserImage },
-  { id: '15', name: 'user9user9111', icon: defaultUserImage },
-];
+const users = getRandomUsers(15);
 
 export default function StoriesBar() {
   return (
@@ -73,7 +47,9 @@ function UserStoryIcon({ user }: { user: User }) {
           <ProfileIcon size={profileIconSize} source={defaultUserImage} />
         </DoubleBorder>
 
-        <ThemedText style={styles.userStoryIconText}>{user.name}</ThemedText>
+        <ThemedText style={styles.userStoryIconText}>
+          {user.nickName}
+        </ThemedText>
       </ThemedView>
     </Pressable>
   );
