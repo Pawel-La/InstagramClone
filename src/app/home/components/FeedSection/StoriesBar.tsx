@@ -1,5 +1,10 @@
 import { PropsWithChildren } from 'react';
-import { ImageSourcePropType, StyleSheet, ViewStyle } from 'react-native';
+import {
+  ImageSourcePropType,
+  Pressable,
+  StyleSheet,
+  ViewStyle,
+} from 'react-native';
 
 import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
@@ -57,16 +62,20 @@ export default function StoriesBar() {
   );
 }
 
-// todo this component should be pressable and on click open up user's story
 function UserStoryIcon({ user }: { user: User }) {
-  return (
-    <ThemedView style={styles.userStoryIcon}>
-      <DoubleBorder>
-        <ProfileIcon size={profileIconSize} source={defaultUserImage} />
-      </DoubleBorder>
+  // todo on click open up user's story
+  function onPress() {}
 
-      <ThemedText style={styles.userStoryIconText}>{user.name}</ThemedText>
-    </ThemedView>
+  return (
+    <Pressable onPress={onPress}>
+      <ThemedView style={styles.userStoryIcon}>
+        <DoubleBorder>
+          <ProfileIcon size={profileIconSize} source={defaultUserImage} />
+        </DoubleBorder>
+
+        <ThemedText style={styles.userStoryIconText}>{user.name}</ThemedText>
+      </ThemedView>
+    </Pressable>
   );
 }
 
