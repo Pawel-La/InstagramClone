@@ -5,8 +5,8 @@ import { useRouter } from 'expo-router';
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import ThemedView from '@/src/components/ThemedView';
 import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SidebarSelectedItemsContext';
-import { useSidebarVersionContext } from '@/src/context/SidebarVersionContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
+import useScreenSize from '@/src/hooks/useScreenVersion';
 import { SPACING } from '@/src/utils/theme';
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
@@ -19,10 +19,10 @@ export function MainLogoButton({
 }: {
   smallScreenIconSize: number;
 }) {
-  const sidebarVersion = useSidebarVersionContext();
+  const screenSize = useScreenSize();
   const onPress = useMainLogoButton();
 
-  if (sidebarVersion === 'LG') {
+  if (screenSize === 'LG') {
     return <LargeMainLogoButton onPress={onPress} />;
   }
 

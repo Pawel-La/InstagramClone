@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { SidebarSelectedItemsProvider } from '@/src/context/SidebarSelectedItemsContext';
-import { useSidebarVersionContext } from '@/src/context/SidebarVersionContext';
+import useScreenSize from '@/src/hooks/useScreenVersion';
 import { BORDER_SIZE, SPACING } from '@/src/utils/theme';
 import ThemedView from '../ThemedView';
 import { CreatePostButton } from './components/CreatePostButton';
@@ -22,11 +22,11 @@ import { SearchButton } from './components/SearchButton';
 const NAV_ITEM_SIZE = 24 as const;
 
 export default function Sidebar() {
-  const sidebarVersion = useSidebarVersionContext();
+  const screenSize = useScreenSize();
 
   const styles = StyleSheet.create({
     container: {
-      width: sidebarVersion === 'LG' ? 244 : 74,
+      width: screenSize === 'LG' ? 244 : 74,
       borderRightWidth: BORDER_SIZE.sm,
       paddingBottom: SPACING.xl,
       paddingTop: SPACING.xs,
