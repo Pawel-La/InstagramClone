@@ -18,11 +18,13 @@ export function SearchButton({ iconSize }: { iconSize: number }) {
 
   const { isSelected, onPress } = useSearchButton(searchItem);
 
-  return SidebarItemButton({
-    sidebarItem: searchItem,
-    isSelected: isSelected,
-    onPress: onPress,
-  });
+  return (
+    <SidebarItemButton
+      sidebarItem={searchItem}
+      isSelected={isSelected}
+      onPress={onPress}
+    />
+  );
 }
 
 function useSearchButton(searchItem: SidebarItem) {

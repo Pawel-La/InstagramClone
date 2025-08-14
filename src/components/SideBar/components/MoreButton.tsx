@@ -16,11 +16,13 @@ export function MoreButton({ iconSize }: { iconSize: number }) {
 
   const { isSelected, onPress } = useMoreButton(moreButton);
 
-  return SidebarItemButton({
-    sidebarItem: moreButton,
-    isSelected: isSelected,
-    onPress: onPress,
-  });
+  return (
+    <SidebarItemButton
+      sidebarItem={moreButton}
+      isSelected={isSelected}
+      onPress={onPress}
+    />
+  );
 }
 
 function useMoreButton(moreButton: SidebarItem) {

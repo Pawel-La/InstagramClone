@@ -22,11 +22,13 @@ export function ProfileButton({ iconSize }: { iconSize: number }) {
 
   const { isSelected, onPress } = useProfileButton(profileItem);
 
-  return SidebarItemButton({
-    sidebarItem: profileItem,
-    isSelected: isSelected,
-    onPress: onPress,
-  });
+  return (
+    <SidebarItemButton
+      sidebarItem={profileItem}
+      isSelected={isSelected}
+      onPress={onPress}
+    />
+  );
 }
 
 function useProfileButton(profileItem: SidebarNavItem) {

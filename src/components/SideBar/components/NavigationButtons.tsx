@@ -61,11 +61,13 @@ function MessagesButton({ iconSize }: { iconSize: number }) {
 function NavButton({ item }: { item: SidebarNavItem }) {
   const { isSelected, onPress } = useNavButton(item);
 
-  return SidebarItemButton({
-    sidebarItem: item,
-    isSelected: isSelected,
-    onPress: onPress,
-  });
+  return (
+    <SidebarItemButton
+      sidebarItem={item}
+      isSelected={isSelected}
+      onPress={onPress}
+    />
+  );
 }
 
 function useNavButton(item: SidebarNavItem) {

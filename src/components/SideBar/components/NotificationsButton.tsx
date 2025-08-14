@@ -18,11 +18,13 @@ export function NotificationsButton({ iconSize }: { iconSize: number }) {
 
   const { isSelected, onPress } = useNotificationsButton(notificationsItem);
 
-  return SidebarItemButton({
-    sidebarItem: notificationsItem,
-    isSelected: isSelected,
-    onPress: onPress,
-  });
+  return (
+    <SidebarItemButton
+      sidebarItem={notificationsItem}
+      isSelected={isSelected}
+      onPress={onPress}
+    />
+  );
 }
 
 function useNotificationsButton(notificationsItem: SidebarItem) {
