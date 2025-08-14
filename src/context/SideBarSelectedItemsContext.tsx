@@ -2,6 +2,7 @@ import { createContext, PropsWithChildren, useState } from 'react';
 import { useContextWrapper } from './helpers';
 
 const SIDEBAR_ITEM_ID = {
+  INSTAGRAM: 'INSTAGRAM',
   HOME: 'HOME',
   SEARCH: 'SEARCH',
   EXPLORE: 'EXPLORE',
