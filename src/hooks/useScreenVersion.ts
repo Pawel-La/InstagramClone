@@ -19,8 +19,7 @@ export default function useScreenSize() {
       setScreenSize('LG');
     } else if (width > 1160) {
       setScreenSize('MD');
-      // todo update 760 value to sth more accurate
-    } else if (width > 760) {
+    } else if (width > 768) {
       setScreenSize('SM');
     } else {
       setScreenSize('XS');

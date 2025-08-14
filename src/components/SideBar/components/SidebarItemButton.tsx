@@ -27,6 +27,7 @@ export function SidebarItemButton({
   const { theme: theme } = useThemeContext();
   const { isHovered, ref } = useHover();
   const screenSize = useScreenSize();
+  const showText = screenSize === 'LG';
 
   return (
     <Pressable onPress={onPress} ref={ref}>
@@ -44,7 +45,7 @@ export function SidebarItemButton({
         >
           {isSelected ? sidebarItem.selectedIcon : sidebarItem.icon}
 
-          {screenSize === 'LG' && (
+          {showText && (
             <SidebarItemButtonText
               text={sidebarItem.label}
               isSelected={isSelected}
