@@ -6,13 +6,13 @@ import {
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
-export function SearchButton({ size }: { size: number }) {
+export function SearchButton({ iconSize }: { iconSize: number }) {
   const searchItem: SidebarItem = {
     id: 'SEARCH',
     label: 'Szukaj',
-    icon: <ThemedCustomIcon name="search" size={size} strokeWidth={2} />,
+    icon: <ThemedCustomIcon name="search" size={iconSize} strokeWidth={2} />,
     selectedIcon: (
-      <ThemedCustomIcon name="search" size={size} strokeWidth={3} />
+      <ThemedCustomIcon name="search" size={iconSize} strokeWidth={3} />
     ),
   };
 

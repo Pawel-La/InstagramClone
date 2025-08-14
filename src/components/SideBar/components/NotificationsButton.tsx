@@ -8,12 +8,12 @@ import {
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
-export function NotificationsButton({ size }: { size: number }) {
+export function NotificationsButton({ iconSize }: { iconSize: number }) {
   const notificationsItem: SidebarItem = {
     id: 'NOTIFICATIONS',
     label: 'Powiadomienia',
-    icon: <ThemedCustomIcon name="heart_empty" size={size} />,
-    selectedIcon: <ThemedCustomIcon name="heart_filled" size={size} />,
+    icon: <ThemedCustomIcon name="heart_empty" size={iconSize} />,
+    selectedIcon: <ThemedCustomIcon name="heart_filled" size={iconSize} />,
   };
 
   const { isSelected, onPress } = useNotificationsButton(notificationsItem);

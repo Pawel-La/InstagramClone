@@ -10,12 +10,12 @@ import { SidebarItemButton } from './SidebarItemButton';
 
 const defaultUserImage = require('@/src/assets/images/user_image.jpg');
 
-export function ProfileButton({ size }: { size: number }) {
+export function ProfileButton({ iconSize }: { iconSize: number }) {
   const profileItem: SidebarNavItem = {
     id: 'PROFILE',
     label: 'Profil',
-    icon: <ProfileIcon size={size} source={defaultUserImage} />,
-    selectedIcon: <SelectedProfileIcon size={size} />,
+    icon: <ProfileIcon size={iconSize} source={defaultUserImage} />,
+    selectedIcon: <SelectedProfileIcon size={iconSize} />,
     // todo change navigation to /[username]/ instead
     path: '/',
   };

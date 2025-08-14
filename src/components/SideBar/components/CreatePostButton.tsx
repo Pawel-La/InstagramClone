@@ -2,12 +2,12 @@ import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
-export function CreatePostButton({ size }: { size: number }) {
+export function CreatePostButton({ iconSize }: { iconSize: number }) {
   const createPostItem: SidebarItem = {
     id: 'CREATE',
     label: 'Utwórz',
-    icon: <ThemedCustomIcon name="add-box" size={size} />,
-    selectedIcon: <ThemedCustomIcon name="add-box" size={size} />,
+    icon: <ThemedCustomIcon name="add-box" size={iconSize} />,
+    selectedIcon: <ThemedCustomIcon name="add-box" size={iconSize} />,
   };
 
   function onPress() {

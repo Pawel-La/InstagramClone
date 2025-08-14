@@ -6,12 +6,12 @@ import {
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
-export function MoreButton({ size }: { size: number }) {
+export function MoreButton({ iconSize }: { iconSize: number }) {
   const moreButton: SidebarItem = {
     id: 'MORE',
     label: 'Więcej',
-    icon: <ThreeHorizontalLinesIcon strokeWidth={2} size={size} />,
-    selectedIcon: <ThreeHorizontalLinesIcon strokeWidth={3} size={size} />,
+    icon: <ThreeHorizontalLinesIcon strokeWidth={2} size={iconSize} />,
+    selectedIcon: <ThreeHorizontalLinesIcon strokeWidth={3} size={iconSize} />,
   };
 
   const { isSelected, onPress } = useMoreButton(moreButton);
