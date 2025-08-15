@@ -47,8 +47,6 @@ export const FONT_WEIGHT = {
 export const BORDER_RADIUS = {
   sm: 4,
   md: 8,
-  lg: 12,
-  xl: 20,
   round: 9999,
 };
 
@@ -63,5 +61,4 @@ export const LINE_HEIGHT = {
   sm: 16,
   md: 20,
   lg: 24,
-  xl: 32,
 };
