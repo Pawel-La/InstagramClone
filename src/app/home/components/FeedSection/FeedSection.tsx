@@ -1,5 +1,5 @@
-import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
+import { Feed } from './Feed';
 import { usePageVariant } from './FeedSection.hooks';
 import StoriesBar from './StoriesBar';
 import styles from './styles';
@@ -17,14 +17,6 @@ export default function FeedSection() {
       />
       <StoriesBar />
       <Feed />
-    </ThemedView>
-  );
-}
-
-function Feed() {
-  return (
-    <ThemedView style={styles.feedSection}>
-      <ThemedText>1111</ThemedText>
     </ThemedView>
   );
 }
