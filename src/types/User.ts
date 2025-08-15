@@ -9,6 +9,15 @@ export type User = {
 
 const defaultUserImage = require('@/src/assets/images/user_image.jpg');
 
+export function getLoggedInUser() {
+  return {
+    id: '134',
+    name: 'Paweł Lamża',
+    nickName: 'pawel_lamza',
+    icon: defaultUserImage,
+  };
+}
+
 export function getRandomUsers(n: number) {
   const users: User[] = [];
 
