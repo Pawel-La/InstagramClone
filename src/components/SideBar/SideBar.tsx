@@ -32,15 +32,18 @@ export default function Sidebar() {
       paddingTop: SPACING.xs,
       paddingHorizontal: SPACING.md,
     },
+    subcontainer: {
+      flex: 1,
+    },
   });
 
   return (
     <SidebarSelectedItemsProvider>
       <ThemedView style={styles.container}>
-        <ThemedView style={{ flex: 1 }}>
+        <ThemedView style={styles.subcontainer}>
           <MainLogoButton smallScreenIconSize={NAV_ITEM_SIZE} />
 
-          <ThemedView style={{ flex: 1 }}>
+          <ThemedView style={styles.subcontainer}>
             <HomeButton iconSize={NAV_ITEM_SIZE} />
             <SearchButton iconSize={NAV_ITEM_SIZE} />
             <ExploreButton iconSize={NAV_ITEM_SIZE} />

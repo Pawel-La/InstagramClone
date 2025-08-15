@@ -19,7 +19,7 @@ export default function TopBar({
   showFollowing,
 }: TopBarProps) {
   return (
-    <ThemedView style={styles.topBar}>
+    <ThemedView style={styles.container}>
       <TopBarButton
         text={'Dla Ciebie'}
         selected={variant === 'HOME'}
@@ -42,13 +42,14 @@ type TopBarButtonProps = {
 
 function TopBarButton({ text, selected, onPress }: TopBarButtonProps) {
   const { theme: theme } = useThemeContext();
-  const color = selected ? theme.primary : theme.secondary;
+  const style = [
+    styles.text,
+    { color: selected ? theme.primary : theme.secondary },
+  ];
 
   return (
     <Pressable onPress={onPress}>
-      <ThemedText style={[styles.topBarText, { color: color }]}>
-        {text}
-      </ThemedText>
+      <ThemedText style={style}>{text}</ThemedText>
     </Pressable>
   );
 }

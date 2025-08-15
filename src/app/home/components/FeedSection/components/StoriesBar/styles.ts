@@ -31,6 +31,12 @@ const styles = StyleSheet.create({
     borderRadius: BORDER_RADIUS.round,
     borderColor: 'transparent',
   },
+  doubleBorderContainer: { position: 'relative' },
+  gradientRing: {
+    position: 'absolute',
+    left: -5,
+    top: -5,
+  },
 });
 
 export default styles;

@@ -3,8 +3,9 @@ import { Text, TextProps } from 'react-native';
 
 const ThemedText = ({ style, ...props }: TextProps) => {
   const { theme: theme } = useThemeContext();
+  const themedTextStyle = [{ color: theme.text }, style];
 
-  return <Text style={[{ color: theme.text }, style]} {...props} />;
+  return <Text style={themedTextStyle} {...props} />;
 };
 
 export default ThemedText;

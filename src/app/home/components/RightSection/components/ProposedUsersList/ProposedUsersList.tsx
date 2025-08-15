@@ -11,7 +11,7 @@ export function ProposedUsersList({ users }: { users: User[] }) {
     <ThemedView>
       <ProposedUsersTextRow />
 
-      <ThemedView style={styles.proposedUsersList}>
+      <ThemedView style={styles.list}>
         {users.map((user) => (
           <ProposedUserRow key={user.id} user={user} />
         ))}
@@ -47,10 +47,10 @@ function ProposedUserRow({ user }: { user: User }) {
       <UserRow.Icon source={user.icon} />
 
       <UserRow.TextsContainer>
-        <UserRow.MainText text={user.nickName} />
+        <UserRow.Text text={user.nickName} />
         <UserRow.SubText
           text={'Propozycje dla Ciebie'}
-          style={{ fontSize: FONT_SIZE.small }}
+          style={styles.userRow}
         />
       </UserRow.TextsContainer>
 

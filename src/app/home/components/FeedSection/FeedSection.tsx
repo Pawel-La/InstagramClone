@@ -9,7 +9,7 @@ export default function FeedSection() {
   const { variant, showHome, showFollowing } = usePageVariant();
 
   return (
-    <ThemedView style={styles.mainSection}>
+    <ThemedView style={styles.container}>
       <TopBar
         variant={variant}
         showHome={showHome}

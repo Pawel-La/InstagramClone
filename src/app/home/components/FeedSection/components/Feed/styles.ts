@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  feedSection: {
+  container: {
     width: 470,
     backgroundColor: 'purple',
     alignSelf: 'center',

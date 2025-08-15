@@ -15,7 +15,7 @@ export function UserRow({ user }: { user: User }) {
       <UserRow.Icon source={user.icon} />
 
       <UserRow.TextsContainer>
-        <UserRow.MainText text={user.nickName} />
+        <UserRow.Text text={user.nickName} />
         <UserRow.SubText text={user.name} />
       </UserRow.TextsContainer>
 
@@ -25,7 +25,7 @@ export function UserRow({ user }: { user: User }) {
 }
 
 function Container({ children }: PropsWithChildren) {
-  return <ThemedView style={styles.userRowContainer}>{children}</ThemedView>;
+  return <ThemedView style={styles.container}>{children}</ThemedView>;
 }
 UserRow.Container = Container;
 
@@ -39,16 +39,16 @@ function TextsContainer({ children }: PropsWithChildren) {
 }
 UserRow.TextsContainer = TextsContainer;
 
-function MainText({ text }: { text: string }) {
-  return <ThemedText style={styles.mainText}>{text}</ThemedText>;
+function Text({ text }: { text: string }) {
+  return <ThemedText style={styles.text}>{text}</ThemedText>;
 }
-UserRow.MainText = MainText;
+UserRow.Text = Text;
 
 function SubText({ text, style }: { text: string; style?: TextStyle }) {
   const { theme: theme } = useThemeContext();
-  const textStyle = [{ color: theme.secondary }, style];
+  const subTextStyle = [{ color: theme.secondary }, style];
 
-  return <ThemedText style={textStyle}>{text}</ThemedText>;
+  return <ThemedText style={subTextStyle}>{text}</ThemedText>;
 }
 UserRow.SubText = SubText;
 

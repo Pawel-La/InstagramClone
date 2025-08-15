@@ -4,7 +4,7 @@ import styles from './styles';
 
 export function Feed() {
   return (
-    <ThemedView style={styles.feedSection}>
+    <ThemedView style={styles.container}>
       <ThemedText>1111</ThemedText>
     </ThemedView>
   );

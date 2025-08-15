@@ -2,7 +2,7 @@ import { SPACING } from '@/src/utils/theme';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  mainSection: {
+  container: {
     width: 630,
     gap: SPACING.lg,
     marginTop: SPACING.sm,

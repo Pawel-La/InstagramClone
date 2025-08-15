@@ -8,13 +8,13 @@ import {
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  topBar: {
+  container: {
     flexDirection: 'row',
     gap: SPACING.md,
     paddingVertical: SPACING.sm,
     borderBottomWidth: BORDER_SIZE.sm,
   },
-  topBarText: {
+  text: {
     fontSize: FONT_SIZE.base,
     lineHeight: LINE_HEIGHT.md,
     fontWeight: FONT_WEIGHT.bold,

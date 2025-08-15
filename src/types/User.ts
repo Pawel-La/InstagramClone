@@ -9,7 +9,7 @@ export type User = {
 
 const defaultUserImage = require('@/src/assets/images/user_image.jpg');
 
-export function getLoggedInUser() {
+export function getMockLoggedInUser() {
   return {
     id: '134',
     name: 'Paweł Lamża',
@@ -18,7 +18,7 @@ export function getLoggedInUser() {
   };
 }
 
-export function getRandomUsers(n: number) {
+export function getMockUsers(n: number) {
   const users: User[] = [];
 
   for (let i = 0; i < n; i++) {

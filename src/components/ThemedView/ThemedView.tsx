@@ -3,16 +3,12 @@ import { View, ViewProps } from 'react-native';
 
 const ThemedView = ({ style, ...props }: ViewProps) => {
   const { theme: theme } = useThemeContext();
+  const themedViewStyle = [
+    { backgroundColor: theme.background, borderColor: theme.border },
+    style,
+  ];
 
-  return (
-    <View
-      style={[
-        { backgroundColor: theme.background, borderColor: theme.border },
-        style,
-      ]}
-      {...props}
-    />
-  );
+  return <View style={themedViewStyle} {...props} />;
 };
 
 export default ThemedView;
