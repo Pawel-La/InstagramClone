@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     gap: SPACING.xs,
   },
   userStoryIconText: {
-    fontSize: FONT_SIZE.xs,
+    fontSize: FONT_SIZE.small,
   },
   innerBorder: {
     borderWidth: BORDER_SIZE.lg,

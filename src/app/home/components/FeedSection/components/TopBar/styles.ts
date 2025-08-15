@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: BORDER_SIZE.sm,
   },
   topBarText: {
-    fontSize: FONT_SIZE.md,
+    fontSize: FONT_SIZE.base,
     lineHeight: LINE_HEIGHT.md,
     fontWeight: FONT_WEIGHT.bold,
   },

@@ -28,7 +28,7 @@ function ProposedUsersTextRow() {
       fontWeight: FONT_WEIGHT.medium,
     },
     link: {
-      fontSize: FONT_SIZE.xs,
+      fontSize: FONT_SIZE.small,
       fontWeight: FONT_WEIGHT.medium,
     },
   };
@@ -50,7 +50,7 @@ function ProposedUserRow({ user }: { user: User }) {
         <UserRow.MainText text={user.nickName} />
         <UserRow.SubText
           text={'Propozycje dla Ciebie'}
-          style={{ fontSize: FONT_SIZE.xs }}
+          style={{ fontSize: FONT_SIZE.small }}
         />
       </UserRow.TextsContainer>
 

@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     borderRadius: BORDER_RADIUS.md,
   },
   text: {
-    fontSize: FONT_SIZE.md,
+    fontSize: FONT_SIZE.base,
     lineHeight: LINE_HEIGHT.lg,
   },
   selectedText: {

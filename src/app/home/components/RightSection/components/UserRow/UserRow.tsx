@@ -54,7 +54,7 @@ UserRow.SubText = SubText;
 
 function LinkText({ text }: { text: string }) {
   const { theme: theme } = useThemeContext();
-  const style = { color: theme.link_primary, fontSize: FONT_SIZE.xs };
+  const style = { color: theme.link_primary, fontSize: FONT_SIZE.small };
 
   return <ThemedText style={style}>{text}</ThemedText>;
 }
