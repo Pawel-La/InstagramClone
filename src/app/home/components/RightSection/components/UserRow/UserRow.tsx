@@ -1,11 +1,12 @@
+import { PropsWithChildren } from 'react';
+import { ImageSourcePropType, TextStyle } from 'react-native';
+
 import ProfileIcon from '@/src/components/ProfileIcon';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { User } from '@/src/types/User';
 import { FONT_SIZE } from '@/src/utils/theme';
-import { PropsWithChildren } from 'react';
-import { ImageSourcePropType, TextStyle } from 'react-native';
 import styles from './styles';
 
 export function UserRow({ user }: { user: User }) {

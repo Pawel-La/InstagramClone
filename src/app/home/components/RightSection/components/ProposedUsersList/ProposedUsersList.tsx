@@ -3,8 +3,8 @@ import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { User } from '@/src/types/User';
 import { FONT_SIZE, FONT_WEIGHT } from '@/src/utils/theme';
+import UserRow from '../UserRow';
 import styles from './styles';
-import { UserRow } from './UserRow';
 
 export function ProposedUsersList({ users }: { users: User[] }) {
   return (

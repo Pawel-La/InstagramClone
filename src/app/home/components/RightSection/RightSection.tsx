@@ -3,9 +3,9 @@ import { getLoggedInUser, getRandomUsers } from '@/src/types/User';
 
 import styles from './styles';
 
-import { BottomText } from './BottomText';
-import { ProposedUsersList } from './ProposedUsersList';
-import { UserRow } from './UserRow';
+import BottomText from './components/BottomText';
+import ProposedUsersList from './components/ProposedUsersList';
+import UserRow from './components/UserRow';
 
 const loggedInUser = getLoggedInUser();
 const proposedUsers = getRandomUsers(5);
