@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.lg,
     flexDirection: 'column',
     gap: SPACING.md,
+    marginHorizontal: SPACING.sm,
   },
   userRowContainer: {
     paddingVertical: SPACING.xs,
