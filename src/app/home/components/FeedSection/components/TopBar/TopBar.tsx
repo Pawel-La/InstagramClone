@@ -3,8 +3,8 @@ import { Pressable, PressableProps } from 'react-native';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
-import { Variant } from './FeedSection.hooks';
 
+import { Variant } from '../../FeedSection.hooks';
 import styles from './styles';
 
 type TopBarProps = {

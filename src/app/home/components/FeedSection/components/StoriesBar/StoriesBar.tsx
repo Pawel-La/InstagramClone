@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Pressable, StyleSheet, ViewStyle } from 'react-native';
+import { Pressable, ViewStyle } from 'react-native';
 
 import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
@@ -8,12 +8,7 @@ import ThemedScrollView from '@/src/components/ThemedScrollView';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { getRandomUsers, User } from '@/src/types/User';
-import {
-  BORDER_RADIUS,
-  BORDER_SIZE,
-  FONT_SIZE,
-  SPACING,
-} from '@/src/utils/theme';
+import styles from './styles';
 
 const defaultUserImage = require('@/src/assets/images/user_image.jpg');
 
@@ -108,29 +103,3 @@ function GradientRing({ size, strokeWidth, style }: GradientRingProps) {
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  storiesBar: {
-    width: 630,
-    height: 124,
-    flexGrow: 0,
-  },
-  storiesBarContainer: {
-    padding: SPACING.xs,
-    gap: SPACING.xl,
-  },
-  userStoryIcon: {
-    padding: SPACING.xxs,
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: SPACING.xs,
-  },
-  userStoryIconText: {
-    fontSize: FONT_SIZE.xs,
-  },
-  innerBorder: {
-    borderWidth: BORDER_SIZE.lg,
-    borderRadius: BORDER_RADIUS.round,
-    borderColor: 'transparent',
-  },
-});
