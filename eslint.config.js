@@ -21,6 +21,11 @@ module.exports = defineConfig([
               pattern: '@src/**',
               group: 'internal',
             },
+            {
+              pattern: './styles',
+              group: 'index',
+              position: 'after',
+            },
           ],
           pathGroupsExcludedImportTypes: ['internal', 'react'],
           'newlines-between': 'always',

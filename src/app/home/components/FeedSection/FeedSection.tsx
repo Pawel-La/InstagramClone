@@ -4,6 +4,7 @@ import Feed from './components/Feed';
 import StoriesBar from './components/StoriesBar';
 import TopBar from './components/TopBar';
 import { usePageVariant } from './FeedSection.hooks';
+
 import styles from './styles';
 
 export default function FeedSection() {

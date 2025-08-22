@@ -5,6 +5,7 @@ import { User } from '@/src/types/User';
 import { FONT_SIZE, FONT_WEIGHT } from '@/src/utils/theme';
 
 import UserRow from '../UserRow';
+
 import styles from './styles';
 
 export function ProposedUsersList({ users }: { users: User[] }) {

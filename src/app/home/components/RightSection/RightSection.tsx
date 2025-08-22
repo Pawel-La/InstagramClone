@@ -4,6 +4,7 @@ import { getMockLoggedInUser, getMockUsers } from '@/src/types/User';
 import BottomText from './components/BottomText';
 import ProposedUsersList from './components/ProposedUsersList';
 import UserRow from './components/UserRow';
+
 import styles from './styles';
 
 const loggedInUser = getMockLoggedInUser();

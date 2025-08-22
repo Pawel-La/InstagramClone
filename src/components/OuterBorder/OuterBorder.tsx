@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 
 import ThemedView from '../ThemedView';
+
 import getStyles from './styles';
 
 interface OuterBorderProps extends PropsWithChildren {

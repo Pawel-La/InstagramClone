@@ -3,6 +3,7 @@ import useScreenSize from '@/src/hooks/useScreenVersion';
 
 import FeedSection from './components/FeedSection';
 import RightSection from './components/RightSection';
+
 import styles from './styles';
 
 export default function Home() {
