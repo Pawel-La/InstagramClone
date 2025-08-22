@@ -9,7 +9,15 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
+    "prettify": "prettier --write .",
     "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "prettier"
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
@@ -50,7 +58,9 @@
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
+    "prettier": "^3.6.2",
     "react-native-svg-transformer": "^1.5.1",
     "react-test-renderer": "^19.0.0",
     "ts-jest": "^29.4.0",
