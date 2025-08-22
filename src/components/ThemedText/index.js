@@ -1,3 +1,3 @@
-import ThemedText from "./ThemedText";
+import ThemedText from './ThemedText';
 
 export default ThemedText;

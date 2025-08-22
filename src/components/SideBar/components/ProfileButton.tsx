@@ -2,9 +2,10 @@ import { usePathname, useRouter } from 'expo-router';
 
 import OuterBorder from '@/src/components/OuterBorder';
 import ProfileIcon from '@/src/components/ProfileIcon';
-import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SidebarSelectedItemsContext';
+import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SideBarSelectedItemsContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { BORDER_RADIUS } from '@/src/utils/theme';
+
 import { SidebarNavItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
@@ -22,13 +23,7 @@ export function ProfileButton({ iconSize }: { iconSize: number }) {
 
   const { isSelected, onPress } = useProfileButton(profileItem);
 
-  return (
-    <SidebarItemButton
-      sidebarItem={profileItem}
-      isSelected={isSelected}
-      onPress={onPress}
-    />
-  );
+  return <SidebarItemButton sidebarItem={profileItem} isSelected={isSelected} onPress={onPress} />;
 }
 
 function useProfileButton(profileItem: SidebarNavItem) {
@@ -55,12 +50,7 @@ function SelectedProfileIcon({ size }: { size: number }) {
   };
 
   return (
-    <OuterBorder
-      contentWidth={size}
-      contentHeight={size}
-      borderWidth={2}
-      borderStyle={borderStyle}
-    >
+    <OuterBorder contentWidth={size} contentHeight={size} borderWidth={2} borderStyle={borderStyle}>
       <ProfileIcon size={size} source={defaultUserImage} />
     </OuterBorder>
   );

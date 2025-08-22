@@ -3,6 +3,7 @@ import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { User } from '@/src/types/User';
 import { FONT_SIZE, FONT_WEIGHT } from '@/src/utils/theme';
+
 import UserRow from '../UserRow';
 import styles from './styles';
 
@@ -48,10 +49,7 @@ function ProposedUserRow({ user }: { user: User }) {
 
       <UserRow.TextsContainer>
         <UserRow.Text text={user.nickName} />
-        <UserRow.SubText
-          text={'Propozycje dla Ciebie'}
-          style={styles.userRow}
-        />
+        <UserRow.SubText text={'Propozycje dla Ciebie'} style={styles.userRow} />
       </UserRow.TextsContainer>
 
       <UserRow.LinkText text={'Obserwuj'} />

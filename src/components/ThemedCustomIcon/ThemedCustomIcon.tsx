@@ -54,138 +54,57 @@ export default function ThemedCustomIcon({
 
   switch (name) {
     case 'home': {
-      return (
-        <HomeIcon
-          color={primary}
-          fill={secondary}
-          width={width}
-          height={height}
-          {...props}
-        />
-      );
+      return <HomeIcon color={primary} fill={secondary} width={width} height={height} {...props} />;
     }
     case 'home_filled': {
-      return (
-        <HomeIcon
-          color={primary}
-          fill={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
-      );
+      return <HomeIcon color={primary} fill={primary} width={width} height={height} {...props} />;
     }
     case 'search': {
       return (
-        <SearchIcon
-          color={primary}
-          fill={secondary}
-          width={width}
-          height={height}
-          {...props}
-        />
+        <SearchIcon color={primary} fill={secondary} width={width} height={height} {...props} />
       );
     }
     case 'explore_v1': {
       return (
-        <ExploreV1Icon
-          color={primary}
-          fill={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
+        <ExploreV1Icon color={primary} fill={primary} width={width} height={height} {...props} />
       );
     }
     case 'explore_v2': {
       return (
-        <ExploreV2Icon
-          color={primary}
-          fill={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
+        <ExploreV2Icon color={primary} fill={primary} width={width} height={height} {...props} />
       );
     }
     case 'reels_v1': {
       return (
-        <ReelsV1Icon
-          color={primary}
-          fill={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
+        <ReelsV1Icon color={primary} fill={primary} width={width} height={height} {...props} />
       );
     }
     case 'reels_v2': {
       return (
-        <ReelsV2Icon
-          color={primary}
-          fill={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
+        <ReelsV2Icon color={primary} fill={primary} width={width} height={height} {...props} />
       );
     }
     case 'direction': {
       return (
-        <DirectionIcon
-          color={primary}
-          fill={secondary}
-          width={width}
-          height={height}
-          {...props}
-        />
+        <DirectionIcon color={primary} fill={secondary} width={width} height={height} {...props} />
       );
     }
     case 'direction_filled': {
       return (
-        <DirectionIcon
-          color={primary}
-          fill={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
+        <DirectionIcon color={primary} fill={primary} width={width} height={height} {...props} />
       );
     }
     case 'heart_empty': {
-      return (
-        <HeartEmptyIcon
-          fill={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
-      );
+      return <HeartEmptyIcon fill={primary} width={width} height={height} {...props} />;
     }
     case 'heart_filled': {
-      return (
-        <HeartFilledIcon
-          fill={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
-      );
+      return <HeartFilledIcon fill={primary} width={width} height={height} {...props} />;
     }
     case 'add-box': {
-      return (
-        <AddBoxIcon color={primary} width={width} height={height} {...props} />
-      );
+      return <AddBoxIcon color={primary} width={width} height={height} {...props} />;
     }
     case 'three-horizontal-lines': {
-      return (
-        <ThreeHorizontalLinesIcon
-          color={primary}
-          width={width}
-          height={height}
-          {...props}
-        />
-      );
+      return <ThreeHorizontalLinesIcon color={primary} width={width} height={height} {...props} />;
     }
     case 'instagram-written': {
       return <InstagramWrittenIcon color={primary} {...props} />;

@@ -2,7 +2,8 @@ import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import {
   useSidebarSelectedItemsStateContext,
   useSidebarSelectedItemsUpdaterContext,
-} from '@/src/context/SidebarSelectedItemsContext';
+} from '@/src/context/SideBarSelectedItemsContext';
+
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
@@ -11,20 +12,12 @@ export function SearchButton({ iconSize }: { iconSize: number }) {
     id: 'SEARCH',
     label: 'Szukaj',
     icon: <ThemedCustomIcon name="search" size={iconSize} strokeWidth={2} />,
-    selectedIcon: (
-      <ThemedCustomIcon name="search" size={iconSize} strokeWidth={3} />
-    ),
+    selectedIcon: <ThemedCustomIcon name="search" size={iconSize} strokeWidth={3} />,
   };
 
   const { isSelected, onPress } = useSearchButton(searchItem);
 
-  return (
-    <SidebarItemButton
-      sidebarItem={searchItem}
-      isSelected={isSelected}
-      onPress={onPress}
-    />
-  );
+  return <SidebarItemButton sidebarItem={searchItem} isSelected={isSelected} onPress={onPress} />;
 }
 
 function useSearchButton(searchItem: SidebarItem) {

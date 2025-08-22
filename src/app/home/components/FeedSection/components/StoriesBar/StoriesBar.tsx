@@ -8,6 +8,7 @@ import ThemedScrollView from '@/src/components/ThemedScrollView';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { getMockUsers, User } from '@/src/types/User';
+
 import styles from './styles';
 
 const defaultUserImage = require('@/src/assets/images/user_image.jpg');
@@ -44,9 +45,7 @@ function UserStoryIcon({ user }: { user: User }) {
           <ProfileIcon size={profileIconSize} source={defaultUserImage} />
         </DoubleBorder>
 
-        <ThemedText style={styles.userStoryIconText}>
-          {user.nickName}
-        </ThemedText>
+        <ThemedText style={styles.userStoryIconText}>{user.nickName}</ThemedText>
       </ThemedView>
     </Pressable>
   );
@@ -55,10 +54,7 @@ function UserStoryIcon({ user }: { user: User }) {
 function DoubleBorder({ children }: PropsWithChildren) {
   return (
     <ThemedView style={styles.doubleBorderContainer}>
-      <GradientRing
-        size={gradientRingSize}
-        strokeWidth={gradientRingStrokeSize}
-      />
+      <GradientRing size={gradientRingSize} strokeWidth={gradientRingStrokeSize} />
       <ThemedView style={styles.innerBorder}>{children}</ThemedView>
     </ThemedView>
   );

@@ -1,3 +1,3 @@
-import ThemedView from "./ThemedView";
+import ThemedView from './ThemedView';
 
 export default ThemedView;

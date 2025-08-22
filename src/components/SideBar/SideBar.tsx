@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
 
-import { SidebarSelectedItemsProvider } from '@/src/context/SidebarSelectedItemsContext';
+import { SidebarSelectedItemsProvider } from '@/src/context/SideBarSelectedItemsContext';
 import useScreenSize from '@/src/hooks/useScreenVersion';
 import { BORDER_SIZE, SPACING } from '@/src/utils/theme';
+
 import ThemedView from '../ThemedView';
 import { CreatePostButton } from './components/CreatePostButton';
 import { MainLogoButton } from './components/MainLogoButton';

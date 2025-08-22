@@ -1,4 +1,5 @@
 import ThemedView from '@/src/components/ThemedView';
+
 import styles from './styles';
 
 export default function Explore() {

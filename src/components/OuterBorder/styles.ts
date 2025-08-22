@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default function getStyles(
   contentWidth: number,
   contentHeight: number,
-  borderWidth: number
+  borderWidth: number,
 ) {
   return StyleSheet.create({
     container: {

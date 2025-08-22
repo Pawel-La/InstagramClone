@@ -1,5 +1,6 @@
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
+
 import styles from './styles';
 
 export function Feed() {

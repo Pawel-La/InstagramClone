@@ -2,10 +2,10 @@ import { StrictMode } from 'react';
 
 import { Stack } from 'expo-router';
 
+import { styles } from './styles';
 import Sidebar from '../components/Sidebar';
 import ThemedView from '../components/ThemedView';
 import { ThemeProvider } from '../context/ThemeContext';
-import { styles } from './styles';
 
 export default function RootLayout() {
   return (

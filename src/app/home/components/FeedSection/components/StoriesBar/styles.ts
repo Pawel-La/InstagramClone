@@ -1,11 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import {
-  BORDER_RADIUS,
-  BORDER_SIZE,
-  FONT_SIZE,
-  SPACING,
-} from '@/src/utils/theme';
+import { BORDER_RADIUS, BORDER_SIZE, FONT_SIZE, SPACING } from '@/src/utils/theme';
 
 const styles = StyleSheet.create({
   storiesBar: {

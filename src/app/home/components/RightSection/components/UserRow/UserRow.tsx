@@ -7,6 +7,7 @@ import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { User } from '@/src/types/User';
 import { FONT_SIZE } from '@/src/utils/theme';
+
 import styles from './styles';
 
 export function UserRow({ user }: { user: User }) {

@@ -4,21 +4,18 @@ import { useRouter } from 'expo-router';
 
 import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import ThemedView from '@/src/components/ThemedView';
-import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SidebarSelectedItemsContext';
+import { useSidebarSelectedItemsUpdaterContext } from '@/src/context/SideBarSelectedItemsContext';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import useScreenSize from '@/src/hooks/useScreenVersion';
 import { SPACING } from '@/src/utils/theme';
+
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
 const BIG_SCREEN_MAIN_LOGO_BUTTON_WIDTH = 100 as const;
 const BIG_SCREEN_MAIN_LOGO_BUTTON_HEIGHT = 32 as const;
 
-export function MainLogoButton({
-  smallScreenIconSize,
-}: {
-  smallScreenIconSize: number;
-}) {
+export function MainLogoButton({ smallScreenIconSize }: { smallScreenIconSize: number }) {
   const screenSize = useScreenSize();
   const onPress = useMainLogoButton();
 
@@ -26,9 +23,7 @@ export function MainLogoButton({
     return <LargeMainLogoButton onPress={onPress} />;
   }
 
-  return (
-    <SmallMainLogoButton onPress={onPress} iconSize={smallScreenIconSize} />
-  );
+  return <SmallMainLogoButton onPress={onPress} iconSize={smallScreenIconSize} />;
 }
 
 function useMainLogoButton() {
@@ -62,13 +57,7 @@ function LargeMainLogoButton({ onPress }: { onPress(): void }) {
   );
 }
 
-function SmallMainLogoButton({
-  iconSize,
-  onPress,
-}: {
-  iconSize: number;
-  onPress(): void;
-}) {
+function SmallMainLogoButton({ iconSize, onPress }: { iconSize: number; onPress(): void }) {
   const mainLogoItem: SidebarItem = {
     id: 'INSTAGRAM',
     label: '',
@@ -78,11 +67,7 @@ function SmallMainLogoButton({
 
   return (
     <ThemedView style={styles.smallButtonContainer}>
-      <SidebarItemButton
-        sidebarItem={mainLogoItem}
-        isSelected={false}
-        onPress={onPress}
-      />
+      <SidebarItemButton sidebarItem={mainLogoItem} isSelected={false} onPress={onPress} />
     </ThemedView>
   );
 }

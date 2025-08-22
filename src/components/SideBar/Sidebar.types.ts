@@ -1,5 +1,6 @@
-import { SidebarItemId } from '@/src/context/SidebarSelectedItemsContext';
 import { Href } from 'expo-router';
+
+import { SidebarItemId } from '@/src/context/SideBarSelectedItemsContext';
 
 export type SidebarItem = {
   id: SidebarItemId;

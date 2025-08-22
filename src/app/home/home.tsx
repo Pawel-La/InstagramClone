@@ -1,9 +1,9 @@
-import styles from './styles';
-
 import ThemedView from '@/src/components/ThemedView';
 import useScreenSize from '@/src/hooks/useScreenVersion';
+
 import FeedSection from './components/FeedSection';
 import RightSection from './components/RightSection';
+import styles from './styles';
 
 export default function Home() {
   const screenSize = useScreenSize();

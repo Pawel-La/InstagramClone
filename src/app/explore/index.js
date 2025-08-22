@@ -1,3 +1,3 @@
-import Explore from "./explore";
+import Explore from './explore';
 
 export default Explore;

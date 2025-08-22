@@ -1,3 +1,3 @@
-import RightSection from "./RightSection";
+import RightSection from './RightSection';
 
 export default RightSection;

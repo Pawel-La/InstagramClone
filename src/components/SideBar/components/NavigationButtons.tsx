@@ -4,7 +4,8 @@ import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import {
   useSidebarSelectedItemsStateContext,
   useSidebarSelectedItemsUpdaterContext,
-} from '@/src/context/SidebarSelectedItemsContext';
+} from '@/src/context/SideBarSelectedItemsContext';
+
 import { SidebarNavItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
@@ -61,13 +62,7 @@ function MessagesButton({ iconSize }: { iconSize: number }) {
 function NavButton({ item }: { item: SidebarNavItem }) {
   const { isSelected, onPress } = useNavButton(item);
 
-  return (
-    <SidebarItemButton
-      sidebarItem={item}
-      isSelected={isSelected}
-      onPress={onPress}
-    />
-  );
+  return <SidebarItemButton sidebarItem={item} isSelected={isSelected} onPress={onPress} />;
 }
 
 function useNavButton(item: SidebarNavItem) {

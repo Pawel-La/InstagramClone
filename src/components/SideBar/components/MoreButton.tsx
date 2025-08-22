@@ -2,7 +2,8 @@ import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import {
   useSidebarSelectedItemsStateContext,
   useSidebarSelectedItemsUpdaterContext,
-} from '@/src/context/SidebarSelectedItemsContext';
+} from '@/src/context/SideBarSelectedItemsContext';
+
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
@@ -16,13 +17,7 @@ export function MoreButton({ iconSize }: { iconSize: number }) {
 
   const { isSelected, onPress } = useMoreButton(moreButton);
 
-  return (
-    <SidebarItemButton
-      sidebarItem={moreButton}
-      isSelected={isSelected}
-      onPress={onPress}
-    />
-  );
+  return <SidebarItemButton sidebarItem={moreButton} isSelected={isSelected} onPress={onPress} />;
 }
 
 function useMoreButton(moreButton: SidebarItem) {
@@ -39,18 +34,6 @@ function useMoreButton(moreButton: SidebarItem) {
   return { isSelected, onPress };
 }
 
-function ThreeHorizontalLinesIcon({
-  strokeWidth,
-  size,
-}: {
-  strokeWidth: number;
-  size: number;
-}) {
-  return (
-    <ThemedCustomIcon
-      name="three-horizontal-lines"
-      size={size}
-      strokeWidth={strokeWidth}
-    />
-  );
+function ThreeHorizontalLinesIcon({ strokeWidth, size }: { strokeWidth: number; size: number }) {
+  return <ThemedCustomIcon name="three-horizontal-lines" size={size} strokeWidth={strokeWidth} />;
 }

@@ -1,11 +1,6 @@
-import {
-  BORDER_SIZE,
-  FONT_SIZE,
-  FONT_WEIGHT,
-  LINE_HEIGHT,
-  SPACING,
-} from '@/src/utils/theme';
 import { StyleSheet } from 'react-native';
+
+import { BORDER_SIZE, FONT_SIZE, FONT_WEIGHT, LINE_HEIGHT, SPACING } from '@/src/utils/theme';
 
 const styles = StyleSheet.create({
   container: {

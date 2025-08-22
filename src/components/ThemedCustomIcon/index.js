@@ -1,3 +1,3 @@
-import ThemedCustomIcon from "./ThemedCustomIcon";
+import ThemedCustomIcon from './ThemedCustomIcon';
 
 export default ThemedCustomIcon;

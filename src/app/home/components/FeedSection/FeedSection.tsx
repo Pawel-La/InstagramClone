@@ -1,4 +1,5 @@
 import ThemedView from '@/src/components/ThemedView';
+
 import Feed from './components/Feed';
 import StoriesBar from './components/StoriesBar';
 import TopBar from './components/TopBar';
@@ -10,11 +11,7 @@ export default function FeedSection() {
 
   return (
     <ThemedView style={styles.container}>
-      <TopBar
-        variant={variant}
-        showHome={showHome}
-        showFollowing={showFollowing}
-      />
+      <TopBar variant={variant} showHome={showHome} showFollowing={showFollowing} />
       <StoriesBar />
       <Feed />
     </ThemedView>

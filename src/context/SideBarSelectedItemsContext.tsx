@@ -1,4 +1,5 @@
 import { createContext, PropsWithChildren, useState } from 'react';
+
 import { useContextWrapper } from './helpers';
 
 const SIDEBAR_ITEM_ID = {
@@ -19,8 +20,7 @@ export type SidebarItemId = keyof typeof SIDEBAR_ITEM_ID;
 type stateProps = SidebarItemId[] | undefined;
 
 const SidebarSelectedItemsStateContext = createContext<stateProps>(undefined);
-SidebarSelectedItemsStateContext.displayName =
-  'SidebarSelectedItemsStateContext';
+SidebarSelectedItemsStateContext.displayName = 'SidebarSelectedItemsStateContext';
 
 function useSidebarSelectedItemsStateContext() {
   return useContextWrapper(SidebarSelectedItemsStateContext);
@@ -28,10 +28,8 @@ function useSidebarSelectedItemsStateContext() {
 
 type updaterProps = ((key: SidebarItemId[]) => void) | undefined;
 
-const SidebarSelectedItemsUpdaterContext =
-  createContext<updaterProps>(undefined);
-SidebarSelectedItemsUpdaterContext.displayName =
-  'SidebarSelectedItemsUpdaterContext';
+const SidebarSelectedItemsUpdaterContext = createContext<updaterProps>(undefined);
+SidebarSelectedItemsUpdaterContext.displayName = 'SidebarSelectedItemsUpdaterContext';
 
 function useSidebarSelectedItemsUpdaterContext() {
   return useContextWrapper(SidebarSelectedItemsUpdaterContext);

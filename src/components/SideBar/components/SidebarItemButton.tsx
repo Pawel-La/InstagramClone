@@ -4,13 +4,8 @@ import ThemedText from '@/src/components/ThemedText';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import useHover from '@/src/hooks/useHover';
 import useScreenSize from '@/src/hooks/useScreenVersion';
-import {
-  BORDER_RADIUS,
-  FONT_SIZE,
-  FONT_WEIGHT,
-  LINE_HEIGHT,
-  SPACING,
-} from '@/src/utils/theme';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, LINE_HEIGHT, SPACING } from '@/src/utils/theme';
+
 import { SidebarItem } from '../Sidebar.types';
 
 type SidebarItemButtonProps = {
@@ -19,11 +14,7 @@ type SidebarItemButtonProps = {
   onPress: () => void;
 };
 
-export function SidebarItemButton({
-  sidebarItem,
-  isSelected,
-  onPress,
-}: SidebarItemButtonProps) {
+export function SidebarItemButton({ sidebarItem, isSelected, onPress }: SidebarItemButtonProps) {
   const { theme: theme } = useThemeContext();
   const { isHovered, ref } = useHover();
   const screenSize = useScreenSize();
@@ -36,39 +27,22 @@ export function SidebarItemButton({
           style={[
             styles.container,
             {
-              backgroundColor: isHovered
-                ? theme.background_hovered
-                : theme.background,
+              backgroundColor: isHovered ? theme.background_hovered : theme.background,
             },
             pressed && { transform: [{ scale: 0.96 }] },
           ]}
         >
           {isSelected ? sidebarItem.selectedIcon : sidebarItem.icon}
 
-          {showText && (
-            <SidebarItemButtonText
-              text={sidebarItem.label}
-              isSelected={isSelected}
-            />
-          )}
+          {showText && <SidebarItemButtonText text={sidebarItem.label} isSelected={isSelected} />}
         </View>
       )}
     </Pressable>
   );
 }
 
-function SidebarItemButtonText({
-  text,
-  isSelected,
-}: {
-  text: string;
-  isSelected: boolean;
-}) {
-  return (
-    <ThemedText style={[styles.text, isSelected && styles.selectedText]}>
-      {text}
-    </ThemedText>
-  );
+function SidebarItemButtonText({ text, isSelected }: { text: string; isSelected: boolean }) {
+  return <ThemedText style={[styles.text, isSelected && styles.selectedText]}>{text}</ThemedText>;
 }
 
 const styles = StyleSheet.create({

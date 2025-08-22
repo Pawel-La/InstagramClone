@@ -4,7 +4,8 @@ import ThemedCustomIcon from '@/src/components/ThemedCustomIcon';
 import {
   useSidebarSelectedItemsStateContext,
   useSidebarSelectedItemsUpdaterContext,
-} from '@/src/context/SidebarSelectedItemsContext';
+} from '@/src/context/SideBarSelectedItemsContext';
+
 import { SidebarItem } from '../Sidebar.types';
 import { SidebarItemButton } from './SidebarItemButton';
 
@@ -19,11 +20,7 @@ export function NotificationsButton({ iconSize }: { iconSize: number }) {
   const { isSelected, onPress } = useNotificationsButton(notificationsItem);
 
   return (
-    <SidebarItemButton
-      sidebarItem={notificationsItem}
-      isSelected={isSelected}
-      onPress={onPress}
-    />
+    <SidebarItemButton sidebarItem={notificationsItem} isSelected={isSelected} onPress={onPress} />
   );
 }
 

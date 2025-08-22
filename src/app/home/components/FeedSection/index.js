@@ -1,3 +1,3 @@
-import FeedSection from "./FeedSection";
+import FeedSection from './FeedSection';
 
 export default FeedSection;

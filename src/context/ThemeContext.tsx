@@ -1,7 +1,8 @@
 import { createContext, PropsWithChildren, useEffect, useState } from 'react';
 import { Appearance } from 'react-native';
-import { darkTheme, lightTheme } from '../utils/theme';
+
 import { useContextWrapper } from './helpers';
+import { darkTheme, lightTheme } from '../utils/theme';
 
 type ThemeProps = {
   text: string;
@@ -31,11 +32,7 @@ function useThemeContext() {
 function ThemeProvider({ children }: PropsWithChildren) {
   const { theme, setTheme } = useTheme();
 
-  return (
-    <ThemeContext value={{ theme: theme, setTheme: setTheme }}>
-      {children}
-    </ThemeContext>
-  );
+  return <ThemeContext value={{ theme: theme, setTheme: setTheme }}>{children}</ThemeContext>;
 }
 
 function useTheme() {
@@ -51,11 +48,9 @@ function useTheme() {
   }
 
   useEffect(() => {
-    const eventSubscription = Appearance.addChangeListener(
-      ({ colorScheme }) => {
-        setIsDark(colorScheme === 'dark');
-      }
-    );
+    const eventSubscription = Appearance.addChangeListener(({ colorScheme }) => {
+      setIsDark(colorScheme === 'dark');
+    });
 
     return () => {
       eventSubscription.remove();
