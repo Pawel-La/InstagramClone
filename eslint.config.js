@@ -6,9 +6,7 @@ module.exports = defineConfig([
   {
     ignores: ['dist/*'],
     rules: {
-      // Sorting within an import
       'sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true }],
-      // Sorting import statements
       'import/order': [
         'error',
         {
