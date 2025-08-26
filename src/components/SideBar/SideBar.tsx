@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { SidebarSelectedItemsProvider } from '@/src/context/SideBarSelectedItemsContext';
@@ -18,6 +19,8 @@ import { NotificationsButton } from './components/NotificationsButton';
 import { ProfileButton } from './components/ProfileButton';
 import { SearchButton } from './components/SearchButton';
 
+import styles from './styles';
+
 // todo handle the case of selected ids being === []
 
 const NAV_ITEM_SIZE = 24 as const;
@@ -25,22 +28,17 @@ const NAV_ITEM_SIZE = 24 as const;
 export default function Sidebar() {
   const screenSize = useScreenSize();
 
-  const styles = StyleSheet.create({
-    container: {
-      width: screenSize === 'LG' ? 244 : 74,
-      borderRightWidth: BORDER_SIZE.sm,
-      paddingBottom: SPACING.xl,
-      paddingTop: SPACING.xs,
-      paddingHorizontal: SPACING.md,
-    },
-    subcontainer: {
-      flex: 1,
-    },
-  });
+  const dynamicStyles = useMemo(() => {
+    return StyleSheet.create({
+      container: {
+        width: screenSize === 'LG' ? 244 : 74,
+      },
+    });
+  }, [screenSize]);
 
   return (
     <SidebarSelectedItemsProvider>
-      <ThemedView style={styles.container}>
+      <ThemedView style={[styles.container, dynamicStyles.container]}>
         <ThemedView style={styles.subcontainer}>
           <MainLogoButton smallScreenIconSize={NAV_ITEM_SIZE} />
 

@@ -1,8 +1,9 @@
+import { useMemo } from 'react';
+
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
 import { User } from '@/src/types/User';
-import { FONT_SIZE, FONT_WEIGHT } from '@/src/utils/theme';
 
 import UserRow from '../UserRow';
 
@@ -24,21 +25,21 @@ export function ProposedUsersList({ users }: { users: User[] }) {
 
 function ProposedUsersTextRow() {
   const { theme: theme } = useThemeContext();
-  const textRowStyles = {
-    title: {
-      color: theme.secondary,
-      fontWeight: FONT_WEIGHT.medium,
-    },
-    link: {
-      fontSize: FONT_SIZE.small,
-      fontWeight: FONT_WEIGHT.medium,
-    },
-  };
+  const dynamicStyles = useMemo(
+    () => ({
+      textRowTitle: {
+        color: theme.secondary,
+      },
+    }),
+    [theme.secondary],
+  );
 
   return (
     <ThemedView style={styles.textRow}>
-      <ThemedText style={textRowStyles.title}>Propozycje dla Ciebie</ThemedText>
-      <ThemedText style={textRowStyles.link}>Zobacz wszystkich</ThemedText>
+      <ThemedText style={[styles.textRowTitle, dynamicStyles.textRowTitle]}>
+        Propozycje dla Ciebie
+      </ThemedText>
+      <ThemedText style={[styles.textRowLink]}>Zobacz wszystkich</ThemedText>
     </ThemedView>
   );
 }

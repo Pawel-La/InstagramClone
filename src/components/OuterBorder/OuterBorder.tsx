@@ -1,9 +1,9 @@
-import { PropsWithChildren } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { PropsWithChildren, useMemo } from 'react';
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
 import ThemedView from '../ThemedView';
 
-import getStyles from './styles';
+import styles from './styles';
 
 interface OuterBorderProps extends PropsWithChildren {
   contentWidth: number;
@@ -22,12 +22,30 @@ export default function OuterBorder({
   borderStyle,
   children,
 }: OuterBorderProps) {
-  const styles = getStyles(contentWidth, contentHeight, borderWidth);
+  const dynamicStyles = useMemo(() => {
+    return getDynamicStyles(contentWidth, contentHeight, borderWidth);
+  }, [contentWidth, contentHeight, borderWidth]);
 
   return (
-    <ThemedView style={styles.container}>
-      <ThemedView style={[styles.border, borderStyle]} />
+    <ThemedView style={[styles.container, dynamicStyles.container]}>
+      <ThemedView style={[styles.border, dynamicStyles.border, borderStyle]} />
       {children}
     </ThemedView>
   );
+}
+
+function getDynamicStyles(contentWidth: number, contentHeight: number, borderWidth: number) {
+  return StyleSheet.create({
+    container: {
+      width: contentWidth,
+      height: contentHeight,
+    },
+    border: {
+      left: -borderWidth,
+      top: -borderWidth,
+      width: contentWidth + 2 * borderWidth,
+      height: contentHeight + 2 * borderWidth,
+      borderWidth: borderWidth,
+    },
+  });
 }
