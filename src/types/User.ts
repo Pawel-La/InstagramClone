@@ -4,7 +4,7 @@ export type User = {
   id: string;
   name: string;
   nickName: string;
-  icon: ImageSourcePropType;
+  profileImage: ImageSourcePropType;
 };
 
 const defaultUserImage = require('@/src/assets/images/user_image.jpg');
@@ -14,7 +14,7 @@ export function getMockLoggedInUser() {
     id: '134',
     name: 'Paweł Lamża',
     nickName: 'pawel_lamza',
-    icon: defaultUserImage,
+    profileImage: defaultUserImage,
   };
 }
 
@@ -26,7 +26,7 @@ export function getMockUsers(n: number) {
       id: `id${i}`,
       name: `user${i}`,
       nickName: `u_nick${i}`,
-      icon: defaultUserImage,
+      profileImage: defaultUserImage,
     });
   }
 

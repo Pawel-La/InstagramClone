@@ -13,7 +13,7 @@ import styles from './styles';
 export function UserRow({ user }: { user: User }) {
   return (
     <UserRow.Container>
-      <UserRow.Icon source={user.icon} />
+      <UserRow.Icon source={user.profileImage} />
 
       <UserRow.TextsContainer>
         <UserRow.Text text={user.nickName} />

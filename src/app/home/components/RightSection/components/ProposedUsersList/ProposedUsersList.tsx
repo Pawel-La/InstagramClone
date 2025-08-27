@@ -47,7 +47,7 @@ function ProposedUsersTextRow() {
 function ProposedUserRow({ user }: { user: User }) {
   return (
     <UserRow.Container>
-      <UserRow.Icon source={user.icon} />
+      <UserRow.Icon source={user.profileImage} />
 
       <UserRow.TextsContainer>
         <UserRow.Text text={user.nickName} />

@@ -1,12 +1,12 @@
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
-import { getMockPosts, Post } from '@/src/types/Post';
+import { getMockPost, Post } from '@/src/types/Post';
 
 import PostDetails from './components/PostDetails';
 
 import styles from './styles';
 
-const mockedPosts = getMockPosts(1);
+const mockedPosts = [getMockPost()];
 
 export function Feed() {
   return (
@@ -21,12 +21,16 @@ export function Feed() {
 function FeedPost({ post }: { post: Post }) {
   return (
     <ThemedView style={styles.postContainer}>
-      <PostDetails />
+      <PostDetails post={post} />
+
       <PostImages />
-      <PostActions />
-      <PostLikes />
-      <PostDescription />
-      <PostCommentSection />
+
+      <ThemedView>
+        <PostActions />
+        <PostLikes />
+        <PostDescription />
+        <PostCommentSection />
+      </ThemedView>
     </ThemedView>
   );
 }
