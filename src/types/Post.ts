@@ -19,7 +19,7 @@ const defaultPostImage = require('@/src/assets/images/user_image.jpg');
 export function getMockPost(): Post {
   return {
     id: 'post123',
-    users: getMockUsers(1),
+    users: getMockUsers(4),
     postDate: new Date('2024-01-01T10:30:00'),
     images: [defaultPostImage],
     likesUserIds: ['123', '414', '222', '111'],

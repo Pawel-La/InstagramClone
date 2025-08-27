@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { TextStyle } from 'react-native';
 
+import OverlappingProfileIcons from '@/src/components/OverlappingIcons';
 import ProfileIcon from '@/src/components/ProfileIcon';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
@@ -13,11 +14,17 @@ import { stringifyTimeSince, timeSince } from '@/src/utils/date';
 import styles from '../styles';
 
 const SINGLE_AUTHOR_IMAGE_SIZE = 32 as const;
+const MULTIPLE_AUTHORS_IMAGE_SIZE = 24 as const;
 
 export default function PostDetails({ post }: { post: Post }) {
   return (
     <ThemedView style={styles.postDetailsContainer}>
-      <AuthorsImages authors={post.users} size={SINGLE_AUTHOR_IMAGE_SIZE} />
+      <AuthorsImages
+        authors={post.users}
+        singleAuthorSize={SINGLE_AUTHOR_IMAGE_SIZE}
+        multipleAuthorsSize={MULTIPLE_AUTHORS_IMAGE_SIZE}
+        multipleAuthorsContainerSize={SINGLE_AUTHOR_IMAGE_SIZE}
+      />
 
       <ThemedView style={styles.postDetailsSubcontainer}>
         <AuthorsWithDate authors={post.users} date={post.postDate} />
@@ -31,12 +38,29 @@ export default function PostDetails({ post }: { post: Post }) {
   );
 }
 
-function AuthorsImages({ authors, size }: { authors: User[]; size: number }) {
+function AuthorsImages({
+  authors,
+  singleAuthorSize,
+  multipleAuthorsSize,
+  multipleAuthorsContainerSize,
+}: {
+  authors: User[];
+  singleAuthorSize: number;
+  multipleAuthorsSize: number;
+  multipleAuthorsContainerSize: number;
+}) {
   if (authors.length === 1) {
-    return <ProfileIcon size={size} source={authors[0].profileImage} />;
+    return <ProfileIcon size={singleAuthorSize} source={authors[0].profileImage} />;
   }
-  // todo handle case of 2+ authors
-  return null;
+
+  return (
+    <OverlappingProfileIcons
+      containerSize={multipleAuthorsContainerSize}
+      size={multipleAuthorsSize}
+      frontIcon={authors[0].profileImage}
+      backIcon={authors[1].profileImage}
+    />
+  );
 }
 
 function AuthorsWithDate({ authors, date }: { authors: User[]; date: Date }) {
@@ -98,5 +122,6 @@ function SongRow({ song }: { song: Song }) {
 }
 
 function PostDetailsMoreButton() {
+  // for now decided to not do it, as the functionality is not a priority
   return null;
 }
