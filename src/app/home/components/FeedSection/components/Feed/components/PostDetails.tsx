@@ -49,7 +49,12 @@ function AuthorsImages({
   multipleAuthorsSize: number;
   multipleAuthorsContainerSize: number;
 }) {
+  // todo for authors that have something in Story:
+  // add colorful outside circle
+  // add navigation to the story itself /stories/[authorID]
+
   if (authors.length === 1) {
+    // todo make this icon be navigation to the user profile + show user's profile preview
     return <ProfileIcon size={singleAuthorSize} source={authors[0].profileImage} />;
   }
 
@@ -67,6 +72,7 @@ function AuthorsWithDate({ authors, date }: { authors: User[]; date: Date }) {
   const { theme: theme } = useThemeContext();
   const dynamicStyle = useMemo(() => ({ color: theme.secondary }), [theme]);
 
+  // todo make date to navigate to the actual post /p/[postID] in full view
   return (
     <ThemedView style={styles.row}>
       <Authors authors={authors} />
@@ -88,6 +94,7 @@ function Authors({ authors }: { authors: User[] }) {
     otherAuthors = ` i ${rest.length} innych`;
   }
 
+  // todo make nicknames to be navigation to the user's profile + show user's profile preview
   return (
     <ThemedText style={styles.postDetailAuthors}>
       {first.nickName}
@@ -104,6 +111,7 @@ function Date({ date, style }: { date: Date; style?: TextStyle }) {
   const timeSinceDate = timeSince(date);
   const timeSinceAsString = stringifyTimeSince(timeSinceDate);
 
+  // todo make date showing the date on hover
   return <ThemedText style={style}>{timeSinceAsString}</ThemedText>;
 }
 

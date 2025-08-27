@@ -10,6 +10,7 @@ import styles from './styles';
 export default function FeedSection() {
   const { variant, showHome, showFollowing } = usePageVariant();
 
+  // todo pass variant to StoriesBar and Feed and show content accordingly
   return (
     <ThemedView style={styles.container}>
       <TopBar variant={variant} showHome={showHome} showFollowing={showFollowing} />

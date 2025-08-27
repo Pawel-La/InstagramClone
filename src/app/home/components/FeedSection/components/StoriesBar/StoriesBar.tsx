@@ -20,6 +20,7 @@ const gradientRingStrokeSize = 4 as const;
 const users = getMockUsers(15);
 
 export default function StoriesBar() {
+  // todo add arrow that allows to move 4 stories to the left/right as long as it is possible
   return (
     <ThemedScrollView
       style={styles.storiesBar}
@@ -35,7 +36,7 @@ export default function StoriesBar() {
 }
 
 function UserStoryIcon({ user }: { user: User }) {
-  // todo on click open up user's story
+  // todo on click navigate to the user story /stories/[authorID]
   function onPress() {}
 
   return (
