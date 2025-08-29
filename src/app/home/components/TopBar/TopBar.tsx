@@ -4,7 +4,7 @@ import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { useThemeContext } from '@/src/context/ThemeContext';
 
-import { Variant } from '../PostContainer/PostContainer.hooks';
+import { Variant } from '../../home.hooks';
 
 import styles from './styles';
 
