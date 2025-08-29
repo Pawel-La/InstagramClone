@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Pressable, ScrollView } from 'react-native';
+import { Pressable } from 'react-native';
 
 import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
@@ -8,7 +8,6 @@ import ThemedScrollView from '@/src/components/ThemedScrollView';
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
 import { getMockUsers, User } from '@/src/types/User';
-import { SPACING } from '@/src/utils/theme';
 
 import styles from './styles';
 
@@ -22,28 +21,18 @@ const users = getMockUsers(15);
 
 export default function StoriesBar() {
   // todo add arrow that allows to move 4 stories to the left/right as long as it is possible
+  // switch to FlatList for this purpose
   return (
-    // <ThemedScrollView
-    //   style={styles.storiesBar}
-    //   horizontal
-    //   showsHorizontalScrollIndicator={false}
-    //   contentContainerStyle={styles.storiesBarContainer}
-    // >
-    //   <ThemedText>hahah ale super</ThemedText>
-    // {users.map((user) => (
-    //   <UserStoryIcon key={user.id} user={user} />
-    // ))}
-    // </ThemedScrollView>
-
-    <ScrollView
+    <ThemedScrollView
+      style={styles.storiesBar}
       horizontal
       showsHorizontalScrollIndicator={false}
-      style={{ flex: 1, backgroundColor: 'purple' }}
-      contentContainerStyle={{ padding: SPACING.xs, gap: SPACING.xl }}
+      contentContainerStyle={styles.storiesBarContainer}
     >
-      <ThemedText>hahah ale super</ThemedText>
-      <ThemedText>hahah ale super</ThemedText>
-    </ScrollView>
+      {users.map((user) => (
+        <UserStoryIcon key={user.id} user={user} />
+      ))}
+    </ThemedScrollView>
   );
 }
 
