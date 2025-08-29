@@ -17,7 +17,7 @@ type SidebarItemButtonProps = {
 export function SidebarItemButton({ sidebarItem, isSelected, onPress }: SidebarItemButtonProps) {
   const { theme: theme } = useThemeContext();
   const { isHovered, ref } = useHover();
-  const screenSize = useScreenSize();
+  const { screenSize: screenSize } = useScreenSize();
   const showText = screenSize === 'LG';
 
   return (

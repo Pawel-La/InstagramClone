@@ -26,5 +26,5 @@ export default function useScreenSize() {
     }
   }, [width]);
 
-  return screenSize;
+  return { screenWidth: width, screenSize: screenSize };
 }

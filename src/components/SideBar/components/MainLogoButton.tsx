@@ -16,7 +16,7 @@ const BIG_SCREEN_MAIN_LOGO_BUTTON_WIDTH = 100 as const;
 const BIG_SCREEN_MAIN_LOGO_BUTTON_HEIGHT = 32 as const;
 
 export function MainLogoButton({ smallScreenIconSize }: { smallScreenIconSize: number }) {
-  const screenSize = useScreenSize();
+  const { screenSize: screenSize } = useScreenSize();
   const onPress = useMainLogoButton();
 
   if (screenSize === 'LG') {
