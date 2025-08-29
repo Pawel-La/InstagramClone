@@ -3,9 +3,9 @@ import { Post } from '@/src/types/Post';
 
 import { usePageVariant } from './PostContainer.hooks';
 import styles from '../../styles';
-import FeedPost from '../FeedSection/components/Feed';
-import StoriesBar from '../FeedSection/components/StoriesBar';
-import TopBar from '../FeedSection/components/TopBar';
+import FeedPost from '../FeedPost';
+import StoriesBar from '../StoriesBar';
+import TopBar from '../TopBar';
 
 export default function PostContainer({
   post,

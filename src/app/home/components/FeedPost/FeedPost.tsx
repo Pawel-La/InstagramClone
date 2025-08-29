@@ -1,29 +1,20 @@
+import { Image, ImageSourcePropType } from 'react-native';
+
 import ThemedText from '@/src/components/ThemedText';
 import ThemedView from '@/src/components/ThemedView';
-import { getMockPost, Post } from '@/src/types/Post';
+import { Post } from '@/src/types/Post';
 
 import PostDetails from './components/PostDetails';
 
 import styles from './styles';
 
-const mockedPosts = [getMockPost()];
+export function FeedPost({ post }: { post: Post }) {
+  const img = require('@/src/assets/images/user_image.jpg');
 
-export function Feed() {
-  return (
-    <ThemedView style={styles.container}>
-      {mockedPosts.map((post) => (
-        <FeedPost post={post} key={post.id} />
-      ))}
-    </ThemedView>
-  );
-}
-
-function FeedPost({ post }: { post: Post }) {
   return (
     <ThemedView style={styles.postContainer}>
       <PostDetails post={post} />
-
-      <PostImages />
+      <PostImage source={img} />
 
       <ThemedView>
         <PostActions />
@@ -35,8 +26,19 @@ function FeedPost({ post }: { post: Post }) {
   );
 }
 
-function PostImages() {
-  return <ThemedText>1111</ThemedText>;
+function PostImage({ source }: { source: ImageSourcePropType }) {
+  return (
+    <Image
+      source={source}
+      // resizeMode="contain"
+      style={{
+        width: '100%',
+        height: 'auto',
+        // todo aspect ratio should be dynamic
+        aspectRatio: 1,
+      }}
+    />
+  );
 }
 
 function PostActions() {
