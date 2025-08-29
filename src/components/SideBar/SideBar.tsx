@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 
 import { SidebarSelectedItemsProvider } from '@/src/context/SideBarSelectedItemsContext';
 import useScreenSize from '@/src/hooks/useScreenVersion';
-import { BORDER_SIZE, SPACING } from '@/src/utils/theme';
 
 import ThemedView from '../ThemedView';
 import { CreatePostButton } from './components/CreatePostButton';
@@ -23,18 +22,20 @@ import styles from './styles';
 
 // todo handle the case of selected ids being === []
 
+const SIDEBAR_BIG_WIDTH = 244 as const;
+const SIDEBAR_SMALL_WIDTH = 74 as const;
 const NAV_ITEM_SIZE = 24 as const;
 
 export default function Sidebar() {
-  const screenSize = useScreenSize();
+  const { width: width } = useSidebar();
 
   const dynamicStyles = useMemo(() => {
     return StyleSheet.create({
       container: {
-        width: screenSize === 'LG' ? 244 : 74,
+        width: width,
       },
     });
-  }, [screenSize]);
+  }, [width]);
 
   return (
     <SidebarSelectedItemsProvider>
@@ -58,4 +59,10 @@ export default function Sidebar() {
       </ThemedView>
     </SidebarSelectedItemsProvider>
   );
+}
+
+export function useSidebar() {
+  const { screenSize: screenSize } = useScreenSize();
+
+  return { width: screenSize === 'LG' ? SIDEBAR_BIG_WIDTH : SIDEBAR_SMALL_WIDTH };
 }
